@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7629C52D24B76E41000BD82C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7629C52C24B76E41000BD82C /* AppDelegate.swift */; };
-		7629C52F24B76E41000BD82C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7629C52E24B76E41000BD82C /* SceneDelegate.swift */; };
 		7629C53124B76E41000BD82C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7629C53024B76E41000BD82C /* ViewController.swift */; };
 		7629C53424B76E41000BD82C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7629C53224B76E41000BD82C /* Main.storyboard */; };
 		7629C53624B76E47000BD82C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7629C53524B76E47000BD82C /* Assets.xcassets */; };
 		7629C53924B76E47000BD82C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7629C53724B76E47000BD82C /* LaunchScreen.storyboard */; };
 		7629C54424B76E48000BD82C /* SimbirSoftTasksAlekbaevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7629C54324B76E48000BD82C /* SimbirSoftTasksAlekbaevTests.swift */; };
+		765420E024BDD37D00BAF734 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765420DF24BDD37D00BAF734 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +29,6 @@
 /* Begin PBXFileReference section */
 		7629C52924B76E41000BD82C /* SimbirSoftTasksAlekbaev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimbirSoftTasksAlekbaev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7629C52C24B76E41000BD82C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7629C52E24B76E41000BD82C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7629C53024B76E41000BD82C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7629C53324B76E41000BD82C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7629C53524B76E47000BD82C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		7629C53F24B76E48000BD82C /* SimbirSoftTasksAlekbaevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimbirSoftTasksAlekbaevTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7629C54324B76E48000BD82C /* SimbirSoftTasksAlekbaevTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimbirSoftTasksAlekbaevTests.swift; sourceTree = "<group>"; };
 		7629C54524B76E48000BD82C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		765420DF24BDD37D00BAF734 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../../../.Trash/SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				7629C52C24B76E41000BD82C /* AppDelegate.swift */,
-				7629C52E24B76E41000BD82C /* SceneDelegate.swift */,
+				765420DF24BDD37D00BAF734 /* SceneDelegate.swift */,
 				7629C53024B76E41000BD82C /* ViewController.swift */,
 				7629C53224B76E41000BD82C /* Main.storyboard */,
 				7629C53524B76E47000BD82C /* Assets.xcassets */,
@@ -202,7 +202,7 @@
 			files = (
 				7629C53124B76E41000BD82C /* ViewController.swift in Sources */,
 				7629C52D24B76E41000BD82C /* AppDelegate.swift in Sources */,
-				7629C52F24B76E41000BD82C /* SceneDelegate.swift in Sources */,
+				765420E024BDD37D00BAF734 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SimbirSoftTasksAlekbaev/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -381,6 +382,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SimbirSoftTasksAlekbaev/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -32,11 +32,10 @@ class ViewController: UIViewController {
         print("Random array",array)
         bubbleSort(array: array)
         //MARK:- Seventh task
-        print("Hello")
         increaseIntInString()
     }
     
-    func averageCount(firstNumber :Double, secondNumber :Double) -> Double{
+    func averageCount(firstNumber: Double, secondNumber: Double) -> Double{
         let average = (firstNumber + secondNumber) / 2
         return average
     }
@@ -59,7 +58,7 @@ class ViewController: UIViewController {
         var f2 = 1
         print(f1)
         print(f2)
-        for _ in 3..<number + 1{
+        for _ in 3..<number + 1 {
             print(f1+f2)
             let temp = f1
             f1 = f2
@@ -82,7 +81,7 @@ class ViewController: UIViewController {
     func bubbleSort(array: [Int]) {
         var mutatedArray = array
         let arrayCount = mutatedArray.count - 1
-        for i in 0...arrayCount - 1{
+        for i in 0...arrayCount - 1 {
             for j in 0...arrayCount - i - 1 {
                 if mutatedArray[j] > mutatedArray[j + 1]{
                     let temp = mutatedArray[j]
@@ -95,7 +94,7 @@ class ViewController: UIViewController {
     }
     
     func increaseIntInString(){
-        let string = "abc123"
+        let string = "abc999"
         var stringOfChars = ""
         var stringOfInts = ""
         for i in string {
