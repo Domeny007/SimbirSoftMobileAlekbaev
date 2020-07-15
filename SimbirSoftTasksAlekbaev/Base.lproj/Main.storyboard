@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,35 +51,11 @@
                                     <tabBarItem systemItem="more" id="Ddm-3X-Spz"/>
                                 </items>
                             </tabBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IkD-f5-H24">
-                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1tM-Q0-wy4">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="P8A-mp-7Be">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aCK-b3-tpo">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rXN-t4-zIS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hz7-Le-shy"/>
-                            <constraint firstItem="rXN-t4-zIS" firstAttribute="top" secondItem="IkD-f5-H24" secondAttribute="bottom" id="ewI-bw-86u"/>
                             <constraint firstItem="rXN-t4-zIS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="f9e-Kw-SWP"/>
-                            <constraint firstItem="IkD-f5-H24" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="grb-hv-z1R"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IkD-f5-H24" secondAttribute="trailing" id="kNR-Gz-miC"/>
-                            <constraint firstItem="IkD-f5-H24" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pVY-cr-ysx"/>
                             <constraint firstItem="rXN-t4-zIS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rLr-Bn-oQr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
