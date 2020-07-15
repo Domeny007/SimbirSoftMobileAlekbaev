@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         bubbleSort(array: array)
         //MARK:- Seventh task
         increaseIntInString()
+        
     }
     
     func averageCount(firstNumber: Double, secondNumber: Double) -> Double{
@@ -66,7 +67,6 @@ class ViewController: UIViewController {
             
         }
     }
-    
     func createRandomArray(with average: Int) -> [Int] {
         let n = 15
         var array = [Int]()
@@ -76,7 +76,6 @@ class ViewController: UIViewController {
         }
         return array
     }
-    
     
     func bubbleSort(array: [Int]) {
         var mutatedArray = array
