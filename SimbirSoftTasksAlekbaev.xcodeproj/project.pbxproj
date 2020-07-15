@@ -14,6 +14,7 @@
 		7629C53924B76E47000BD82C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7629C53724B76E47000BD82C /* LaunchScreen.storyboard */; };
 		7629C54424B76E48000BD82C /* SimbirSoftTasksAlekbaevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7629C54324B76E48000BD82C /* SimbirSoftTasksAlekbaevTests.swift */; };
 		765420E024BDD37D00BAF734 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765420DF24BDD37D00BAF734 /* SceneDelegate.swift */; };
+		765420E424BF1ABE00BAF734 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765420E324BF1ABE00BAF734 /* SplashScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		7629C54324B76E48000BD82C /* SimbirSoftTasksAlekbaevTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimbirSoftTasksAlekbaevTests.swift; sourceTree = "<group>"; };
 		7629C54524B76E48000BD82C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		765420DF24BDD37D00BAF734 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../../../.Trash/SceneDelegate.swift; sourceTree = "<group>"; };
+		765420E324BF1ABE00BAF734 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				7629C53524B76E47000BD82C /* Assets.xcassets */,
 				7629C53724B76E47000BD82C /* LaunchScreen.storyboard */,
 				7629C53A24B76E47000BD82C /* Info.plist */,
+				765420E324BF1ABE00BAF734 /* SplashScreenViewController.swift */,
 			);
 			path = SimbirSoftTasksAlekbaev;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			files = (
 				7629C53124B76E41000BD82C /* ViewController.swift in Sources */,
 				7629C52D24B76E41000BD82C /* AppDelegate.swift in Sources */,
+				765420E424BF1ABE00BAF734 /* SplashScreenViewController.swift in Sources */,
 				765420E024BDD37D00BAF734 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
