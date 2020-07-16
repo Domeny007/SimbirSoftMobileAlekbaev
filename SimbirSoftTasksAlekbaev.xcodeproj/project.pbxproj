@@ -14,7 +14,9 @@
 		7629C53924B76E47000BD82C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7629C53724B76E47000BD82C /* LaunchScreen.storyboard */; };
 		7629C54424B76E48000BD82C /* SimbirSoftTasksAlekbaevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7629C54324B76E48000BD82C /* SimbirSoftTasksAlekbaevTests.swift */; };
 		765420E024BDD37D00BAF734 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765420DF24BDD37D00BAF734 /* SceneDelegate.swift */; };
-		765420E424BF1ABE00BAF734 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765420E324BF1ABE00BAF734 /* SplashScreenViewController.swift */; };
+		765420E624BF499E00BAF734 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765420E524BF499E00BAF734 /* HelpViewController.swift */; };
+		765420E924C0473400BAF734 /* HelpCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765420E724C0473400BAF734 /* HelpCollectionViewCell.swift */; };
+		765420EA24C0473400BAF734 /* HelpCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765420E824C0473400BAF734 /* HelpCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,9 @@
 		7629C54324B76E48000BD82C /* SimbirSoftTasksAlekbaevTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimbirSoftTasksAlekbaevTests.swift; sourceTree = "<group>"; };
 		7629C54524B76E48000BD82C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		765420DF24BDD37D00BAF734 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../../../.Trash/SceneDelegate.swift; sourceTree = "<group>"; };
-		765420E324BF1ABE00BAF734 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		765420E524BF499E00BAF734 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		765420E724C0473400BAF734 /* HelpCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCollectionViewCell.swift; sourceTree = "<group>"; };
+		765420E824C0473400BAF734 /* HelpCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		7629C52B24B76E41000BD82C /* SimbirSoftTasksAlekbaev */ = {
 			isa = PBXGroup;
 			children = (
+				765420EB24C0473D00BAF734 /* View */,
 				7629C52C24B76E41000BD82C /* AppDelegate.swift */,
 				765420DF24BDD37D00BAF734 /* SceneDelegate.swift */,
 				7629C53024B76E41000BD82C /* ViewController.swift */,
@@ -88,7 +93,7 @@
 				7629C53524B76E47000BD82C /* Assets.xcassets */,
 				7629C53724B76E47000BD82C /* LaunchScreen.storyboard */,
 				7629C53A24B76E47000BD82C /* Info.plist */,
-				765420E324BF1ABE00BAF734 /* SplashScreenViewController.swift */,
+				765420E524BF499E00BAF734 /* HelpViewController.swift */,
 			);
 			path = SimbirSoftTasksAlekbaev;
 			sourceTree = "<group>";
@@ -100,6 +105,15 @@
 				7629C54524B76E48000BD82C /* Info.plist */,
 			);
 			path = SimbirSoftTasksAlekbaevTests;
+			sourceTree = "<group>";
+		};
+		765420EB24C0473D00BAF734 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				765420E724C0473400BAF734 /* HelpCollectionViewCell.swift */,
+				765420E824C0473400BAF734 /* HelpCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +200,7 @@
 				7629C53924B76E47000BD82C /* LaunchScreen.storyboard in Resources */,
 				7629C53624B76E47000BD82C /* Assets.xcassets in Resources */,
 				7629C53424B76E41000BD82C /* Main.storyboard in Resources */,
+				765420EA24C0473400BAF734 /* HelpCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,8 +220,9 @@
 			files = (
 				7629C53124B76E41000BD82C /* ViewController.swift in Sources */,
 				7629C52D24B76E41000BD82C /* AppDelegate.swift in Sources */,
-				765420E424BF1ABE00BAF734 /* SplashScreenViewController.swift in Sources */,
+				765420E924C0473400BAF734 /* HelpCollectionViewCell.swift in Sources */,
 				765420E024BDD37D00BAF734 /* SceneDelegate.swift in Sources */,
+				765420E624BF499E00BAF734 /* HelpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
