@@ -25,5 +25,4 @@ class HelpCollectionViewCell: UICollectionViewCell {
         helpNameLabel.text = nameOfCellArray[cellId]
     }
     
-
 }

@@ -17,6 +17,7 @@
 		765420E624BF499E00BAF734 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765420E524BF499E00BAF734 /* HelpViewController.swift */; };
 		765420E924C0473400BAF734 /* HelpCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765420E724C0473400BAF734 /* HelpCollectionViewCell.swift */; };
 		765420EA24C0473400BAF734 /* HelpCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765420E824C0473400BAF734 /* HelpCollectionViewCell.xib */; };
+		76FFD70724C187190017EF05 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FFD70624C187190017EF05 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		765420E524BF499E00BAF734 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		765420E724C0473400BAF734 /* HelpCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCollectionViewCell.swift; sourceTree = "<group>"; };
 		765420E824C0473400BAF734 /* HelpCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpCollectionViewCell.xib; sourceTree = "<group>"; };
+		76FFD70624C187190017EF05 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				7629C53724B76E47000BD82C /* LaunchScreen.storyboard */,
 				7629C53A24B76E47000BD82C /* Info.plist */,
 				765420E524BF499E00BAF734 /* HelpViewController.swift */,
+				76FFD70624C187190017EF05 /* TabBarController.swift */,
 			);
 			path = SimbirSoftTasksAlekbaev;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				7629C53124B76E41000BD82C /* ViewController.swift in Sources */,
 				7629C52D24B76E41000BD82C /* AppDelegate.swift in Sources */,
 				765420E924C0473400BAF734 /* HelpCollectionViewCell.swift in Sources */,
+				76FFD70724C187190017EF05 /* TabBarController.swift in Sources */,
 				765420E024BDD37D00BAF734 /* SceneDelegate.swift in Sources */,
 				765420E624BF499E00BAF734 /* HelpViewController.swift in Sources */,
 			);
