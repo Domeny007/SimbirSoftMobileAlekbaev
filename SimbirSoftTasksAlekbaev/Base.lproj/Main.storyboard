@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KOJ-aC-FsV">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="cgM-6A-YxD" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D6x-Ir-cfc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="fxd-TX-VjV"/>
@@ -29,7 +29,7 @@
             <objects>
                 <viewController id="7YO-2l-YN9" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kgh-WG-L2G">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="rme-AA-P92"/>
@@ -45,7 +45,7 @@
             <objects>
                 <viewController id="bdK-un-ZS3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P19-q9-Lnu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="kVP-bK-EBS"/>
@@ -61,7 +61,7 @@
             <objects>
                 <viewController id="tFT-hd-307" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p2M-Sp-3sv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Zes-OH-SNb"/>
@@ -77,14 +77,12 @@
             <objects>
                 <navigationController id="D26-X1-28V" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Помочь" image="heart2" id="K6k-am-MpE">
-                        <inset key="imageInsets" minX="-27" minY="-10" maxX="-27" maxY="9"/>
+                        <inset key="imageInsets" minX="-27" minY="-9" maxX="-27" maxY="11"/>
                         <inset key="largeContentSizeImageInsets" minX="6" minY="1" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SLR-N7-9JE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.40000000000000002" green="0.65098039215686276" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.40000000000000002" green="0.65098039220000004" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,6 +108,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.40000000000000002" green="0.65098039220000004" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="0.40000000000000002" green="0.65098039220000004" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
@@ -124,19 +123,19 @@
             </objects>
             <point key="canvasLocation" x="-1607" y="112"/>
         </scene>
-        <!--Помочь-->
+        <!--Help View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HelpViewController" customModule="SimbirSoftTasksAlekbaev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6tR-Mz-CjK">
-                                <rect key="frame" x="0.0" y="102" width="375" height="516"/>
+                                <rect key="frame" x="0.0" y="102" width="320" height="417"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="9" minimumInteritemSpacing="9" id="c2N-4Y-gz0">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="0.0" height="0.0"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="9" minY="9" maxX="9" maxY="9"/>
@@ -147,29 +146,30 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="hWL-Vw-2vu"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите категорию помощи" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aez-Tl-JZs">
-                                <rect key="frame" x="63" y="64" width="249" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите категорию помощи" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aez-Tl-JZs">
+                                <rect key="frame" x="5" y="64" width="310" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.28627450980392155" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aez-Tl-JZs" secondAttribute="trailing" constant="63" id="0Qp-AW-ScG"/>
                             <constraint firstItem="6tR-Mz-CjK" firstAttribute="top" secondItem="aez-Tl-JZs" secondAttribute="bottom" constant="17" id="LSL-7H-cFh"/>
                             <constraint firstItem="aez-Tl-JZs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="LcJ-S4-ZtV"/>
                             <constraint firstItem="6tR-Mz-CjK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dIi-nV-Tmt"/>
-                            <constraint firstItem="aez-Tl-JZs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="63" id="dK2-0F-1BQ"/>
+                            <constraint firstItem="aez-Tl-JZs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lIz-Kz-CaI"/>
+                            <constraint firstItem="aez-Tl-JZs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="lK6-3S-QNg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aez-Tl-JZs" secondAttribute="trailing" constant="5" id="vB4-dS-J2d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6tR-Mz-CjK" secondAttribute="trailing" id="weB-Sa-VZn"/>
                             <constraint firstItem="6tR-Mz-CjK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="x4V-Yy-GTg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Помочь" image="heart" id="XPd-7t-jzV">
+                    <tabBarItem key="tabBarItem" title="" id="XPd-7t-jzV">
                         <inset key="largeContentSizeImageInsets" minX="5" minY="1" maxX="7" maxY="7"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Помочь" id="8fw-ZL-O6x">
+                    <navigationItem key="navigationItem" id="8fw-ZL-O6x">
                         <barButtonItem key="leftBarButtonItem" image="backButtonIcon" style="plain" id="wDA-2j-NN2">
                             <color key="tintColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
@@ -185,8 +185,7 @@
     </scenes>
     <resources>
         <image name="backButtonIcon" width="12" height="21"/>
-        <image name="heart" width="54" height="54"/>
-        <image name="heart2" width="476" height="418"/>
+        <image name="heart2" width="61" height="54"/>
         <image name="history" width="25" height="25"/>
         <image name="news" width="25" height="25"/>
         <image name="profile" width="25" height="25"/>
