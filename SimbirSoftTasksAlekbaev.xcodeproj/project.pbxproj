@@ -17,6 +17,8 @@
 		765420E924C0473400BAF734 /* HelpCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765420E724C0473400BAF734 /* HelpCollectionViewCell.swift */; };
 		765420EA24C0473400BAF734 /* HelpCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765420E824C0473400BAF734 /* HelpCollectionViewCell.xib */; };
 		76FE340024C58B4A00B225F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE33FF24C58B4A00B225F7 /* SceneDelegate.swift */; };
+		76FE340224C5E09A00B225F7 /* HelpCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE340124C5E09A00B225F7 /* HelpCellModel.swift */; };
+		76FE340824C6130C00B225F7 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE340724C6130C00B225F7 /* SplashViewController.swift */; };
 		76FFD70724C187190017EF05 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FFD70624C187190017EF05 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		765420E724C0473400BAF734 /* HelpCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCollectionViewCell.swift; sourceTree = "<group>"; };
 		765420E824C0473400BAF734 /* HelpCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpCollectionViewCell.xib; sourceTree = "<group>"; };
 		76FE33FF24C58B4A00B225F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		76FE340124C5E09A00B225F7 /* HelpCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCellModel.swift; sourceTree = "<group>"; };
+		76FE340724C6130C00B225F7 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		76FFD70624C187190017EF05 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +100,9 @@
 				7629C53724B76E47000BD82C /* LaunchScreen.storyboard */,
 				7629C53A24B76E47000BD82C /* Info.plist */,
 				765420E524BF499E00BAF734 /* HelpViewController.swift */,
+				76FE340724C6130C00B225F7 /* SplashViewController.swift */,
 				76FFD70624C187190017EF05 /* TabBarController.swift */,
+				76FE340124C5E09A00B225F7 /* HelpCellModel.swift */,
 			);
 			path = SimbirSoftTasksAlekbaev;
 			sourceTree = "<group>";
@@ -226,7 +232,9 @@
 				765420E924C0473400BAF734 /* HelpCollectionViewCell.swift in Sources */,
 				76FFD70724C187190017EF05 /* TabBarController.swift in Sources */,
 				765420E624BF499E00BAF734 /* HelpViewController.swift in Sources */,
+				76FE340224C5E09A00B225F7 /* HelpCellModel.swift in Sources */,
 				76FE340024C58B4A00B225F7 /* SceneDelegate.swift in Sources */,
+				76FE340824C6130C00B225F7 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,9 +10,6 @@ import UIKit
 
 class HelpCollectionViewCell: UICollectionViewCell {
     
-    let imageOfCellArray = [ #imageLiteral(resourceName: "girlImage"), #imageLiteral(resourceName: "manImage"), #imageLiteral(resourceName: "oldManImage"), #imageLiteral(resourceName: "catImage"), #imageLiteral(resourceName: "shoesImage")]
-    let nameOfCellArray = ["Дети","Взрослые","Пожилые","Животные","Мероприятия"]
-
     @IBOutlet weak var helpImageView: UIImageView!
     @IBOutlet weak var helpNameLabel: UILabel!
     
@@ -20,9 +17,9 @@ class HelpCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func fillCellsInformation(cellId: Int) {
-        helpImageView.image = imageOfCellArray[cellId]
-        helpNameLabel.text = nameOfCellArray[cellId]
+    func fillCellsInformation(cellInfoModel: HelpCellModel) {
+        helpNameLabel.text = cellInfoModel.cellName
+        helpImageView.image = cellInfoModel.cellImage
     }
     
 }
