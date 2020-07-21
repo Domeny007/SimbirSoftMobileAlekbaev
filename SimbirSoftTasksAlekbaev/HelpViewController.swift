@@ -35,13 +35,13 @@ class HelpViewController: UIViewController {
     }
     
     //MARK:- Registration collection view cell
-    func registerCollectionCell() {
+    private func registerCollectionCell() {
         let nib = UINib(nibName: "HelpCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "helpCellIdentifier")
     }
     
     //MARK:- Setting colors to navigation bar, title, background and tab bar
-    func setColorsToViews() {
+    private func setColorsToViews() {
         navigationController?.navigationBar.barTintColor = .leafColor
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         collectionView.backgroundColor = .white
@@ -81,6 +81,3 @@ extension HelpViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-extension UIColor {
-    static let leafColor = UIColor(red: 117.0 / 255.0, green: 163.0 / 255.0, blue: 71.0 / 255.0, alpha: 1)
-}

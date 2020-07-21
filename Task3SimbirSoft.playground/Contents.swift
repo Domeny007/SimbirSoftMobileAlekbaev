@@ -45,13 +45,13 @@ print(location)
 class Rectangle {
     var width = 0
     var height = 0
-    
-    
+
+
     init(width: Int, height: Int) {
         self.width = width
         self.height = height
     }
-    
+
     func calculateThePerimeterOfARectangle() {
         let perimeter = 2 * (width + height)
         print("Perimeter of a rectangle: ", perimeter)
@@ -70,4 +70,5 @@ extension Rectangle {
 }
 
 rectangle.calculatуTheAreaOfARectangle()
+
 
