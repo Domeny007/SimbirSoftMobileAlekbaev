@@ -8,7 +8,7 @@ var myClosure: () -> () = {
 myClosure()
 
 func repeatTask (times: Int, task: () -> Void) {
-    for _ in 0..<times {
+    for _ in 0 ..< times {
         task()
     }
 }
@@ -25,7 +25,7 @@ enum Directions {
 
 
 let directionsArray:[Directions] = [.up, .up, .left, .down, .left, .down, .down, .right, .right, .down, .right]
-var location = (0,0)
+var location = (0, 0)
 for direction in directionsArray {
     switch direction {
     case .up:
@@ -54,7 +54,7 @@ class Rectangle {
     
     func calculateThePerimeterOfARectangle() {
         let perimeter = 2 * (width + height)
-        print("Perimeter of a rectangle: ",perimeter)
+        print("Perimeter of a rectangle: ", perimeter)
     }
 }
 
