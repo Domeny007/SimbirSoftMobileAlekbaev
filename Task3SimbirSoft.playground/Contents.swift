@@ -71,4 +71,3 @@ extension Rectangle {
 
 rectangle.calculatуTheAreaOfARectangle()
 
-
