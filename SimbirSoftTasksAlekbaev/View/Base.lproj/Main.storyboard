@@ -102,7 +102,6 @@
         <!--Splash View Controller-->
         <scene sceneID="l1g-Jl-DJU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Z5-Wf-v2K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Izy-d8-6Xm" customClass="SplashViewController" customModule="SimbirSoftTasksAlekbaev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eHy-xW-6OF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -151,6 +150,7 @@
                         <outlet property="activityIndicator" destination="1zK-kD-7UN" id="rY9-6E-a6Z"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Z5-Wf-v2K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2668" y="105"/>
         </scene>
@@ -237,6 +237,76 @@
             </objects>
             <point key="canvasLocation" x="729" y="112"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="AzE-9c-5Gx">
+            <objects>
+                <viewController storyboardIdentifier="SelectedCategoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bUs-nf-J4k" customClass="SelectedCategoryViewController" customModule="SimbirSoftTasksAlekbaev" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Keb-mH-egY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9c-wQ-3Ge">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q6W-bV-5oq">
+                                        <rect key="frame" x="16" y="6" width="343" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Q6W-bV-5oq" firstAttribute="leading" secondItem="w9c-wQ-3Ge" secondAttribute="leading" constant="16" id="DoD-Ey-B5Y"/>
+                                    <constraint firstItem="Q6W-bV-5oq" firstAttribute="centerX" secondItem="w9c-wQ-3Ge" secondAttribute="centerX" id="PMI-cQ-6Jq"/>
+                                    <constraint firstAttribute="height" constant="43" id="UWc-95-aqt"/>
+                                    <constraint firstItem="Q6W-bV-5oq" firstAttribute="centerY" secondItem="w9c-wQ-3Ge" secondAttribute="centerY" id="sSq-MB-U1R"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q6W-bV-5oq" secondAttribute="trailing" constant="16" id="tpY-Pw-nQH"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tM9-dm-yVa">
+                                <rect key="frame" x="0.0" y="43" width="375" height="624"/>
+                                <color key="backgroundColor" red="0.90980392160000001" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nr2-9S-qaZ">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bUs-nf-J4k" id="p7X-JU-1GP"/>
+                                    <outlet property="delegate" destination="bUs-nf-J4k" id="VhJ-W2-Jeo"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tM9-dm-yVa" firstAttribute="bottom" secondItem="3Ns-FH-XBb" secondAttribute="bottom" id="3BA-gM-Dpd"/>
+                            <constraint firstItem="w9c-wQ-3Ge" firstAttribute="leading" secondItem="3Ns-FH-XBb" secondAttribute="leading" id="4Ly-r1-q4n"/>
+                            <constraint firstItem="tM9-dm-yVa" firstAttribute="top" secondItem="w9c-wQ-3Ge" secondAttribute="bottom" id="5TE-gC-8Dc"/>
+                            <constraint firstItem="3Ns-FH-XBb" firstAttribute="trailing" secondItem="w9c-wQ-3Ge" secondAttribute="trailing" id="I8M-nB-BFy"/>
+                            <constraint firstItem="tM9-dm-yVa" firstAttribute="trailing" secondItem="3Ns-FH-XBb" secondAttribute="trailing" id="awU-qZ-piS"/>
+                            <constraint firstItem="tM9-dm-yVa" firstAttribute="leading" secondItem="3Ns-FH-XBb" secondAttribute="leading" id="u0q-I3-qQm"/>
+                            <constraint firstItem="w9c-wQ-3Ge" firstAttribute="top" secondItem="3Ns-FH-XBb" secondAttribute="top" id="yGk-Kj-frc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3Ns-FH-XBb"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Pzo-CX-Z53"/>
+                    <navigationItem key="navigationItem" id="e2D-rG-IGR">
+                        <barButtonItem key="leftBarButtonItem" image="backButtonIcon" id="o7O-zL-qkn"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="3Ne-zR-zip"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="tM9-dm-yVa" id="tth-Mf-Mhg"/>
+                        <outlet property="eventDoneSegmentControl" destination="Q6W-bV-5oq" id="re4-39-nmg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="exb-WS-CVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964" y="112"/>
+        </scene>
     </scenes>
     <resources>
         <image name="backButtonIcon" width="12" height="21"/>
@@ -244,7 +314,7 @@
         <image name="logo" width="251" height="77"/>
         <image name="news" width="25" height="25"/>
         <image name="profile" width="25" height="25"/>
-        <image name="red heart" width="54" height="54"/>
+        <image name="red heart" width="54" height="55"/>
         <image name="search" width="25" height="25"/>
         <image name="simbirSoft" width="116" height="16"/>
     </resources>

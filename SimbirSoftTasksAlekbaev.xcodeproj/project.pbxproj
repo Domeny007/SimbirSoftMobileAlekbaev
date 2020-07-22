@@ -17,6 +17,10 @@
 		765420E924C0473400BAF734 /* HelpCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765420E724C0473400BAF734 /* HelpCollectionViewCell.swift */; };
 		765420EA24C0473400BAF734 /* HelpCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765420E824C0473400BAF734 /* HelpCollectionViewCell.xib */; };
 		7695833724C718CA0021974F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7695833624C718CA0021974F /* Extensions.swift */; };
+		7695833C24C889D50021974F /* SelectedCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7695833B24C889D50021974F /* SelectedCategoryViewController.swift */; };
+		7695834124C8B90E0021974F /* SelectedCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7695833F24C8B90E0021974F /* SelectedCategoryCollectionViewCell.swift */; };
+		7695834224C8B90E0021974F /* SelectedCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7695834024C8B90E0021974F /* SelectedCategoryCollectionViewCell.xib */; };
+		7695834424C8CA4C0021974F /* SelectedCategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7695834324C8CA4C0021974F /* SelectedCategoryCellModel.swift */; };
 		76FE340024C58B4A00B225F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE33FF24C58B4A00B225F7 /* SceneDelegate.swift */; };
 		76FE340224C5E09A00B225F7 /* HelpCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE340124C5E09A00B225F7 /* HelpCellModel.swift */; };
 		76FE340824C6130C00B225F7 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE340724C6130C00B225F7 /* SplashViewController.swift */; };
@@ -48,6 +52,10 @@
 		765420E724C0473400BAF734 /* HelpCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCollectionViewCell.swift; sourceTree = "<group>"; };
 		765420E824C0473400BAF734 /* HelpCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpCollectionViewCell.xib; sourceTree = "<group>"; };
 		7695833624C718CA0021974F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7695833B24C889D50021974F /* SelectedCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategoryViewController.swift; sourceTree = "<group>"; };
+		7695833F24C8B90E0021974F /* SelectedCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		7695834024C8B90E0021974F /* SelectedCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		7695834324C8CA4C0021974F /* SelectedCategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategoryCellModel.swift; sourceTree = "<group>"; };
 		76FE33FF24C58B4A00B225F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		76FE340124C5E09A00B225F7 /* HelpCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCellModel.swift; sourceTree = "<group>"; };
 		76FE340724C6130C00B225F7 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -93,19 +101,11 @@
 		7629C52B24B76E41000BD82C /* SimbirSoftTasksAlekbaev */ = {
 			isa = PBXGroup;
 			children = (
+				7695833924C889000021974F /* Model */,
 				765420EB24C0473D00BAF734 /* View */,
-				7629C52C24B76E41000BD82C /* AppDelegate.swift */,
-				76FE33FF24C58B4A00B225F7 /* SceneDelegate.swift */,
-				7629C53024B76E41000BD82C /* ViewController.swift */,
-				7629C53224B76E41000BD82C /* Main.storyboard */,
-				7629C53524B76E47000BD82C /* Assets.xcassets */,
-				7629C53724B76E47000BD82C /* LaunchScreen.storyboard */,
+				7695833824C888F60021974F /* Controller */,
+				7695833A24C889210021974F /* Other */,
 				7629C53A24B76E47000BD82C /* Info.plist */,
-				765420E524BF499E00BAF734 /* HelpViewController.swift */,
-				76FE340724C6130C00B225F7 /* SplashViewController.swift */,
-				76FFD70624C187190017EF05 /* TabBarController.swift */,
-				76FE340124C5E09A00B225F7 /* HelpCellModel.swift */,
-				7695833624C718CA0021974F /* Extensions.swift */,
 			);
 			path = SimbirSoftTasksAlekbaev;
 			sourceTree = "<group>";
@@ -122,10 +122,62 @@
 		765420EB24C0473D00BAF734 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7695833E24C8B8E10021974F /* SelectedCategoryCell */,
+				7695833D24C8B8CD0021974F /* HelpCell */,
+				7629C53224B76E41000BD82C /* Main.storyboard */,
+				7629C53724B76E47000BD82C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7695833824C888F60021974F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				76FFD70624C187190017EF05 /* TabBarController.swift */,
+				76FE340724C6130C00B225F7 /* SplashViewController.swift */,
+				765420E524BF499E00BAF734 /* HelpViewController.swift */,
+				7695833B24C889D50021974F /* SelectedCategoryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7695833924C889000021974F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76FE340124C5E09A00B225F7 /* HelpCellModel.swift */,
+				7695834324C8CA4C0021974F /* SelectedCategoryCellModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7695833A24C889210021974F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7629C53024B76E41000BD82C /* ViewController.swift */,
+				7695833624C718CA0021974F /* Extensions.swift */,
+				7629C52C24B76E41000BD82C /* AppDelegate.swift */,
+				76FE33FF24C58B4A00B225F7 /* SceneDelegate.swift */,
+				7629C53524B76E47000BD82C /* Assets.xcassets */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		7695833D24C8B8CD0021974F /* HelpCell */ = {
+			isa = PBXGroup;
+			children = (
 				765420E724C0473400BAF734 /* HelpCollectionViewCell.swift */,
 				765420E824C0473400BAF734 /* HelpCollectionViewCell.xib */,
 			);
-			path = View;
+			path = HelpCell;
+			sourceTree = "<group>";
+		};
+		7695833E24C8B8E10021974F /* SelectedCategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				7695833F24C8B90E0021974F /* SelectedCategoryCollectionViewCell.swift */,
+				7695834024C8B90E0021974F /* SelectedCategoryCollectionViewCell.xib */,
+			);
+			path = SelectedCategoryCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7629C53924B76E47000BD82C /* LaunchScreen.storyboard in Resources */,
+				7695834224C8B90E0021974F /* SelectedCategoryCollectionViewCell.xib in Resources */,
 				7629C53624B76E47000BD82C /* Assets.xcassets in Resources */,
 				7629C53424B76E41000BD82C /* Main.storyboard in Resources */,
 				765420EA24C0473400BAF734 /* HelpCollectionViewCell.xib in Resources */,
@@ -232,11 +285,14 @@
 			files = (
 				7629C53124B76E41000BD82C /* ViewController.swift in Sources */,
 				7695833724C718CA0021974F /* Extensions.swift in Sources */,
+				7695834424C8CA4C0021974F /* SelectedCategoryCellModel.swift in Sources */,
 				7629C52D24B76E41000BD82C /* AppDelegate.swift in Sources */,
 				765420E924C0473400BAF734 /* HelpCollectionViewCell.swift in Sources */,
 				76FFD70724C187190017EF05 /* TabBarController.swift in Sources */,
 				765420E624BF499E00BAF734 /* HelpViewController.swift in Sources */,
+				7695834124C8B90E0021974F /* SelectedCategoryCollectionViewCell.swift in Sources */,
 				76FE340224C5E09A00B225F7 /* HelpCellModel.swift in Sources */,
+				7695833C24C889D50021974F /* SelectedCategoryViewController.swift in Sources */,
 				76FE340024C58B4A00B225F7 /* SceneDelegate.swift in Sources */,
 				76FE340824C6130C00B225F7 /* SplashViewController.swift in Sources */,
 			);
