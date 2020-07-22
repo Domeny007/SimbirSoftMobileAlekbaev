@@ -13,7 +13,7 @@ class SelectedCategoryViewController: UIViewController {
     var cellHeight:CGFloat = 0
     var spacing:CGFloat = 5
     
-    let cellModelsArray: [SelectedCellModel] = [SelectedCellModel(eventId: 0, eventImage: UIImage(), eventName: "Спонсоры отремантируют школу интернат", eventDescription: "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …", eventFinishDate: "Осталось 13 дней (21.09 – 20.10)"), SelectedCellModel(eventId: 1, eventImage: UIImage(), eventName: "Конкурс по вокальному пению в детском доме №6", eventDescription: "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …", eventFinishDate: "Октябрь 20, 2016")]
+    let cellModelsArray: [SelectedCellModel] = [SelectedCellModel(eventId: 0, eventImage: UIImage(), eventName: "Спонсоры отремантируют школу интернат", eventDescription: "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …", eventFinishDate: "Осталось 13 дней (21.09 – 20.10)"), SelectedCellModel(eventId: 1, eventImage: UIImage(), eventName: "Конкурс по вокальному пению в детском доме №6", eventDescription: "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …", eventFinishDate: "Октябрь 20, 2016"), SelectedCellModel(eventId: 0, eventImage: UIImage(), eventName: "Спонсоры отремантируют школу интернат", eventDescription: "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …", eventFinishDate: "Осталось 13 дней (21.09 – 20.10)"), SelectedCellModel(eventId: 1, eventImage: UIImage(), eventName: "Конкурс по вокальному пению в детском доме №6", eventDescription: "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …", eventFinishDate: "Октябрь 20, 2016")]
 
     @IBOutlet weak var eventDoneSegmentControl: UISegmentedControl!
     
@@ -25,6 +25,7 @@ class SelectedCategoryViewController: UIViewController {
         if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
+        
         
     }
     
@@ -49,18 +50,11 @@ extension SelectedCategoryViewController: UICollectionViewDelegate, UICollection
 }
     
 extension SelectedCategoryViewController: UICollectionViewDelegateFlowLayout {
-    
+
     //MARK:- setting spacing, width and height of cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         collectionView.contentInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let screenWidth = UIScreen.main.bounds.width
-            cellWidth = screenWidth - spacing * 2
-            cellHeight = 500.0
-            flowLayout.minimumLineSpacing = spacing
-            flowLayout.minimumInteritemSpacing = spacing
-        }
-        return CGSize(width: cellWidth, height: cellHeight)
+        return CGSize(width: collectionView.frame.width - (spacing + spacing) , height: 500)
     }
 }
 

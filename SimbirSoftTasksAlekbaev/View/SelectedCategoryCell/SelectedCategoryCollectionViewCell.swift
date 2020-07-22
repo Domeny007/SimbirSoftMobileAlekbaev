@@ -25,7 +25,4 @@ class SelectedCategoryCollectionViewCell: UICollectionViewCell {
         eventDescriptionLabel.text = cellModel.eventDescription
         eventFinishDateLabel.text = cellModel.eventFinishDate
     }
-    
-    
-
 }
