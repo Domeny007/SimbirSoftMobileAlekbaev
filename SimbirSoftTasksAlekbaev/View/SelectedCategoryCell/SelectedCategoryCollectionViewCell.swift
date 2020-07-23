@@ -17,6 +17,7 @@ class SelectedCategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var eventFinishDateLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        eventNameLabel.tintColor = .blueGrey
     }
     
     func setUpCellInfo(cellModel: SelectedCellModel) {
