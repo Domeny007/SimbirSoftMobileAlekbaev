@@ -8,6 +8,8 @@
 
 import UIKit
 
+let selectedEvent = SelectedEventModel(eventName: "Спонсоры отремонтируют школу-интернат", eventTillDoneDate: "Осталось 13 дней (21.09 – 20.10)", eventLocation: "Санкт-Петербург, Кирочная улица, д. 50А, каб. 208", eventDescription: "Участники и болельщики смогли весело и активно провести время на «Петербургском благотворительном марафоне» и при этом финансово поучаствовать в помощи детям. \n\nПри этом финансово поучаствовать в помощи детям. При этом финансово поучаствовать в помощи детям.", eventPhoneNumbers: "+7 (937) 037 37-73 \n+7 (937) 016 16-16", eventImages: [#imageLiteral(resourceName: "m8"), #imageLiteral(resourceName: "image2"), #imageLiteral(resourceName: "image3")], eventSubsImages: [#imageLiteral(resourceName: "image3")], eventCompanyName: "Благотворительный фонд «Счастливый Мир»", eventSubsCount: 102)
+
 class SelectedEventViewController: UIViewController {
 
     @IBOutlet weak var backBarItem: UIBarButtonItem!
@@ -44,7 +46,8 @@ class SelectedEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let selectedEvent = SelectedEventModel(eventName: "Спонсоры отремонтируют школу-интернат", eventTillDoneDate: "Осталось 13 дней (21.09 – 20.10)", eventLocation: "Санкт-Петербург, Кирочная улица, д. 50А, каб. 208", eventDescription: "Участники и болельщики смогли весело и активно провести время на «Петербургском благотворительном марафоне» и при этом финансово поучаствовать в помощи детям. \n\nПри этом финансово поучаствовать в помощи детям. При этом финансово поучаствовать в помощи детям.", eventPhoneNumbers: "+7 (937) 037 37-73 \n+7 (937) 016 16-16", eventImages: [#imageLiteral(resourceName: "m8"), #imageLiteral(resourceName: "image2"), #imageLiteral(resourceName: "image3")], eventSubsImages: [#imageLiteral(resourceName: "image3")], eventCompanyName: "Благотворительный фонд «Счастливый Мир»", eventSubsCount: 102)
+        eventNavigationBar.barTintColor = .leafColor
+        self.view.backgroundColor = .leafColor
         
         setInformationOfTheWindow(info: selectedEvent)
         
@@ -65,7 +68,6 @@ class SelectedEventViewController: UIViewController {
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0),
             NSAttributedString.Key.foregroundColor : UIColor.leafColor,
             NSAttributedString.Key.underlineStyle : 1]), for: .normal)
-
     }
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
