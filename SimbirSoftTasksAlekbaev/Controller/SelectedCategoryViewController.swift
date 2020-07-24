@@ -21,6 +21,8 @@ class SelectedCategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UITabBar.appearance().barTintColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1.0) // your color
+        UITabBar.appearance().backgroundColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1.0) // your color
         registerCollectionCell()
         setUpAppearenceOfItems()
     }
@@ -30,9 +32,15 @@ class SelectedCategoryViewController: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: "SelectedCellIndentifier")
     }
     
+    
+    @objc private func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     private func setUpAppearenceOfItems() {
         //navigation controller
-        self.navigationItem.leftBarButtonItem?.image = #imageLiteral(resourceName: "backButtonIcon")
+        self.navigationItem.leftBarButtonItem? = UIBarButtonItem(image: #imageLiteral(resourceName: "backButtonIcon"), style: .plain, target: self, action: #selector(backButtonTapped))
         self.navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "rectangle6")
         self.navigationItem.rightBarButtonItem?.tintColor = .white
         self.navigationItem.leftBarButtonItem?.tintColor = .white
@@ -49,13 +57,24 @@ class SelectedCategoryViewController: UIViewController {
         eventDoneSegmentControl.layer.borderColor = UIColor.leafColor.cgColor
         eventDoneSegmentControl.layer.borderWidth = 1.0
         
+        
         //collection view items size
         if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
             
         }
     }
+    
+}
 
+extension SelectedCategoryViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.tag == 0 {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            print("GI")
+        }
+    }
 }
     
 extension SelectedCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -71,7 +90,14 @@ extension SelectedCategoryViewController: UICollectionViewDelegate, UICollection
         cell.layer.masksToBounds = true
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "SelectedEventVCID") as? SelectedEventViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
 }
+
     
 extension SelectedCategoryViewController: UICollectionViewDelegateFlowLayout {
 

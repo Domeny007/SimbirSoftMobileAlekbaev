@@ -82,6 +82,7 @@ class SelectedEventViewController: UIViewController {
     }
     
     private func setInformationOfTheWindow(info: SelectedEventModel) {
+        eventNavigationBar.topItem?.title = info.eventName
         eventNameLabel.text = info.eventName
         eventTillDoneLabel.text = info.eventTillDoneDate
         eventCompanyNameLabel.text = info.eventCompanyName
