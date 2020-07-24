@@ -21,6 +21,8 @@
 		7695834124C8B90E0021974F /* SelectedCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7695833F24C8B90E0021974F /* SelectedCategoryCollectionViewCell.swift */; };
 		7695834224C8B90E0021974F /* SelectedCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7695834024C8B90E0021974F /* SelectedCategoryCollectionViewCell.xib */; };
 		7695834424C8CA4C0021974F /* SelectedCategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7695834324C8CA4C0021974F /* SelectedCategoryCellModel.swift */; };
+		7695834624CA25C40021974F /* SelectedEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7695834524CA25C40021974F /* SelectedEventViewController.swift */; };
+		7695834824CB50E10021974F /* SelectedEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7695834724CB50E10021974F /* SelectedEventModel.swift */; };
 		76FE340024C58B4A00B225F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE33FF24C58B4A00B225F7 /* SceneDelegate.swift */; };
 		76FE340224C5E09A00B225F7 /* HelpCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE340124C5E09A00B225F7 /* HelpCellModel.swift */; };
 		76FE340824C6130C00B225F7 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE340724C6130C00B225F7 /* SplashViewController.swift */; };
@@ -56,6 +58,8 @@
 		7695833F24C8B90E0021974F /* SelectedCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7695834024C8B90E0021974F /* SelectedCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		7695834324C8CA4C0021974F /* SelectedCategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategoryCellModel.swift; sourceTree = "<group>"; };
+		7695834524CA25C40021974F /* SelectedEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedEventViewController.swift; sourceTree = "<group>"; };
+		7695834724CB50E10021974F /* SelectedEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedEventModel.swift; sourceTree = "<group>"; };
 		76FE33FF24C58B4A00B225F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		76FE340124C5E09A00B225F7 /* HelpCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCellModel.swift; sourceTree = "<group>"; };
 		76FE340724C6130C00B225F7 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 				76FE340724C6130C00B225F7 /* SplashViewController.swift */,
 				765420E524BF499E00BAF734 /* HelpViewController.swift */,
 				7695833B24C889D50021974F /* SelectedCategoryViewController.swift */,
+				7695834524CA25C40021974F /* SelectedEventViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 			children = (
 				76FE340124C5E09A00B225F7 /* HelpCellModel.swift */,
 				7695834324C8CA4C0021974F /* SelectedCategoryCellModel.swift */,
+				7695834724CB50E10021974F /* SelectedEventModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7695834624CA25C40021974F /* SelectedEventViewController.swift in Sources */,
 				7629C53124B76E41000BD82C /* ViewController.swift in Sources */,
 				7695833724C718CA0021974F /* Extensions.swift in Sources */,
 				7695834424C8CA4C0021974F /* SelectedCategoryCellModel.swift in Sources */,
@@ -295,6 +302,7 @@
 				7695833C24C889D50021974F /* SelectedCategoryViewController.swift in Sources */,
 				76FE340024C58B4A00B225F7 /* SceneDelegate.swift in Sources */,
 				76FE340824C6130C00B225F7 /* SplashViewController.swift in Sources */,
+				7695834824CB50E10021974F /* SelectedEventModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
