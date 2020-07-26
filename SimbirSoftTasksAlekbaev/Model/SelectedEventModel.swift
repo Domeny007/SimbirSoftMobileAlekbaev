@@ -9,26 +9,17 @@
 import Foundation
 import UIKit
 
-class SelectedEventModel {
-    var eventName = ""
-    var eventTillDoneDate = ""
-    var eventLocation = ""
-    var eventDescription = ""
-    var eventPhoneNumbers = ""
-    var eventImages = [UIImage()]
-    var eventSubsImages = [UIImage()]
-    var eventCompanyName = ""
-    var eventSubsCount = 0
+class SelectedEventModel: NSObject, Decodable {
+    @objc var categoryId = 0
+    @objc var eventId = 0
+    @objc var eventName = ""
+    @objc var eventTillDoneDate = ""
+    @objc var eventLocation = ""
+    @objc var eventDescription = ""
+    @objc var eventPhoneNumbers = [String]()
+    var eventImagesUrl: [String?] = []
+    var eventSubsImagesUrl: [String?] = []
+    @objc var eventCompanyName = ""
+    @objc var eventSubsCount = 0
     
-    init(eventName: String, eventTillDoneDate: String, eventLocation: String, eventDescription: String, eventPhoneNumbers: String, eventImages: [UIImage], eventSubsImages: [UIImage], eventCompanyName: String, eventSubsCount: Int ) {
-        self.eventName = eventName
-        self.eventTillDoneDate = eventTillDoneDate
-        self.eventLocation = eventLocation
-        self.eventDescription = eventDescription
-        self.eventPhoneNumbers = eventPhoneNumbers
-        self.eventImages = eventImages
-        self.eventSubsImages = eventSubsImages
-        self.eventCompanyName = eventCompanyName
-        self.eventSubsCount = eventSubsCount
-    }
 }

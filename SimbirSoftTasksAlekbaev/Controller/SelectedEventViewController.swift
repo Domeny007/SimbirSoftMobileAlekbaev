@@ -7,8 +7,8 @@
 //
 
 import UIKit
+import Kingfisher
 
-let selectedEvent = SelectedEventModel(eventName: "Спонсоры отремонтируют школу-интернат", eventTillDoneDate: "Осталось 13 дней (21.09 – 20.10)", eventLocation: "Санкт-Петербург, Кирочная улица, д. 50А, каб. 208", eventDescription: "Участники и болельщики смогли весело и активно провести время на «Петербургском благотворительном марафоне» и при этом финансово поучаствовать в помощи детям. \n\nПри этом финансово поучаствовать в помощи детям. При этом финансово поучаствовать в помощи детям.", eventPhoneNumbers: "+7 (937) 037 37-73 \n+7 (937) 016 16-16", eventImages: [#imageLiteral(resourceName: "m8"), #imageLiteral(resourceName: "image2"), #imageLiteral(resourceName: "image3")], eventSubsImages: [#imageLiteral(resourceName: "image3")], eventCompanyName: "Благотворительный фонд «Счастливый Мир»", eventSubsCount: 102)
 
 class SelectedEventViewController: UIViewController {
 
@@ -41,17 +41,35 @@ class SelectedEventViewController: UIViewController {
     @IBOutlet weak var writeToUsButton: UIButton!
     @IBOutlet weak var organizationWebPageButton: UIButton!
     
-    
+    var (categoryId, eventId) = (0, 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        eventNavigationBar.barTintColor = .leafColor
-        self.view.backgroundColor = .leafColor
-        
-        setInformationOfTheWindow(info: selectedEvent)
+        let eventInfo = JsonService().getEventById(categoryId: categoryId, eventId: eventId)
+        setInformationOfTheWindow(info: eventInfo)
         
         setUpAppearenceOfItems()
+        
+    }
+    
+    //back buttom action
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK:-Setting up appearence of items on view
+    private func setUpAppearenceOfItems() {
+        
+        //event info items
+        eventNameLabel.textColor = .blueGrey
+        eventTillDoneLabel.textColor = .simbirLightGrey
+        eventCompanyNameLabel.textColor = .simbirGrey
+        eventLocationLabel.textColor = .simbirGrey
+        eventNumberLabel.textColor = .simbirGrey
+        eventDescriptionLabel.textColor = .simbirGrey
+        
+        // tab bar items
         backBarItem.tintColor = .white
         shareBarButtonItem.tintColor = .white
         eventTabBar.unselectedItemTintColor = .leafColor
@@ -59,53 +77,54 @@ class SelectedEventViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         eventNavigationBar.titleTextAttributes = textAttributes
         
+        // write to us button
         writeToUsButton.setAttributedTitle(NSMutableAttributedString(string: "Напишите нам", attributes:[
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0),
             NSAttributedString.Key.foregroundColor : UIColor.leafColor,
             NSAttributedString.Key.underlineStyle : 1]), for: .normal)
-
+        
+        // organization web page button
         organizationWebPageButton.setAttributedTitle(NSMutableAttributedString(string: "Перейти на сайт организации", attributes:[
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0),
             NSAttributedString.Key.foregroundColor : UIColor.leafColor,
             NSAttributedString.Key.underlineStyle : 1]), for: .normal)
+        // navigation bar
+        eventNavigationBar.barTintColor = .leafColor
+        //self view color
+        self.view.backgroundColor = .leafColor
     }
     
-    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    private func setUpAppearenceOfItems() {
-        eventNameLabel.textColor = .blueGrey
-        eventTillDoneLabel.textColor = UIColor(red: 148.0 / 255.0, green: 153.0 / 255.0, blue: 138.0 / 255.0, alpha: 1.0)
-        eventCompanyNameLabel.textColor = UIColor(red: 73.0 / 255.0, green: 74.0 / 255.0, blue: 74.0 / 255.0, alpha: 1.0)
-        eventLocationLabel.textColor = UIColor(red: 73.0 / 255.0, green: 74.0 / 255.0, blue: 74.0 / 255.0, alpha: 1.0)
-        eventNumberLabel.textColor = UIColor(red: 73.0 / 255.0, green: 74.0 / 255.0, blue: 74.0 / 255.0, alpha: 1.0)
-        eventDescriptionLabel.textColor = UIColor(red: 73.0 / 255.0, green: 74.0 / 255.0, blue: 74.0 / 255.0, alpha: 1.0)
-    }
-    
+    //MARK:- Setting up information from json
     private func setInformationOfTheWindow(info: SelectedEventModel) {
+        
         eventNavigationBar.topItem?.title = info.eventName
         eventNameLabel.text = info.eventName
         eventTillDoneLabel.text = info.eventTillDoneDate
         eventCompanyNameLabel.text = info.eventCompanyName
         eventLocationLabel.text = info.eventLocation
-        eventNumberLabel.text = info.eventPhoneNumbers
-        eventDescriptionLabel.text = info.eventDescription
-        eventSubsCountLabel.text = "+" + String(info.eventSubsCount)
-        eventFirstImage.image = info.eventImages[0]
-        eventSecondImage.image = info.eventImages[1]
-        eventThirdImage.image = info.eventImages[2]
-        firstSubImageView.image = info.eventSubsImages[0]
-        secondSubImageView.image = info.eventSubsImages[0]
-        thirdSubImageView.image = info.eventSubsImages[0]
-        fourthSubImageView.image = info.eventSubsImages[0]
-        fifthSubImageView.image = info.eventSubsImages[0]
-        firstSubImageView.makeRounded()
-        secondSubImageView.makeRounded()
-        thirdSubImageView.makeRounded()
-        fourthSubImageView.makeRounded()
-        fifthSubImageView.makeRounded()
         
+        for phoneNumber in info.eventPhoneNumbers {
+            eventNumberLabel.text! += phoneNumber + "\n"
+        }
+        eventDescriptionLabel.text = info.eventDescription
+        eventSubsCountLabel.text = "+" + String(info.eventSubsCount - 5)
+        if !info.eventImagesUrl.isEmpty {
+            eventFirstImage.kf.setImage(with: URL(string: info.eventImagesUrl[0] ?? ""))
+            eventSecondImage.kf.setImage(with: URL(string: info.eventImagesUrl[1] ?? ""))
+            eventThirdImage.kf.setImage(with: URL(string: info.eventImagesUrl[2] ?? ""))
+        }
+        if !info.eventSubsImagesUrl.isEmpty {
+            firstSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[0] ?? ""))
+            secondSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[1] ?? ""))
+            thirdSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[2] ?? ""))
+            fourthSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[3] ?? ""))
+            fifthSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[4] ?? ""))
+            firstSubImageView.makeRounded()
+            secondSubImageView.makeRounded()
+            thirdSubImageView.makeRounded()
+            fourthSubImageView.makeRounded()
+            fifthSubImageView.makeRounded()
+        }
         
     }
     

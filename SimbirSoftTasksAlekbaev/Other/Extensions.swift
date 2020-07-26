@@ -11,6 +11,9 @@ import UIKit
 extension UIColor {
     static let leafColor = UIColor(red: 117.0 / 255.0, green: 163.0 / 255.0, blue: 71.0 / 255.0, alpha: 1.0)
     static let blueGrey = UIColor(red: 98.0 / 255.0, green: 127.0 / 255.0, blue: 143.0 / 255.0, alpha: 1.0)
+    
+    static let simbirGrey = UIColor(red: 73.0 / 255.0, green: 74.0 / 255.0, blue: 74.0 / 255.0, alpha: 1.0)
+    static let simbirLightGrey = UIColor(red: 148.0 / 255.0, green: 153.0 / 255.0, blue: 138.0 / 255.0, alpha: 1.0)
 }
 
 

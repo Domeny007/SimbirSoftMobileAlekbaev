@@ -8,29 +8,32 @@
 
 import UIKit
 
-    let cellModelsArray: [SelectedCellModel] = [SelectedCellModel(eventId: 0, eventImage: UIImage(), eventName: "Спонсоры отремантируют школу интернат", eventDescription: "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …", eventFinishDate: "Осталось 13 дней (21.09 – 20.10)"), SelectedCellModel(eventId: 1, eventImage: UIImage(), eventName: "Конкурс по вокальному пению в детском доме №6", eventDescription: "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …", eventFinishDate: "Октябрь 20, 2016"), SelectedCellModel(eventId: 0, eventImage: UIImage(), eventName: "Спонсоры отремантируют школу интернат", eventDescription: "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …", eventFinishDate: "Осталось 13 дней (21.09 – 20.10)"), SelectedCellModel(eventId: 1, eventImage: UIImage(), eventName: "Конкурс по вокальному пению в детском доме №6", eventDescription: "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …", eventFinishDate: "Октябрь 20, 2016")]
-
 
 class SelectedCategoryViewController: UIViewController {
-    var cellWidth:CGFloat = 0
-    var cellHeight:CGFloat = 0
-    var spacing:CGFloat = 5
+    
+    var emptyView: UIView!
+    var emptyLabel: UILabel!
+    var cellModelsArray = [SelectedCellModel]()
+    var categoryId = 0
     
     @IBOutlet weak var eventDoneSegmentControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UITabBar.appearance().barTintColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1.0) // your color
-        UITabBar.appearance().backgroundColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1.0) // your color
         registerCollectionCell()
         setUpAppearenceOfItems()
+        cellModelsArray = JsonService().getCategoryEventsById(categoryId: categoryId)
     }
+    
+    
+    
     
     private func registerCollectionCell() {
         let nib = UINib(nibName: "SelectedCategoryCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "SelectedCellIndentifier")
     }
+    
     
     
     @objc private func backButtonTapped() {
@@ -39,12 +42,14 @@ class SelectedCategoryViewController: UIViewController {
     
     
     private func setUpAppearenceOfItems() {
+        
         //navigation controller
         self.navigationItem.leftBarButtonItem? = UIBarButtonItem(image: #imageLiteral(resourceName: "backButtonIcon"), style: .plain, target: self, action: #selector(backButtonTapped))
         self.navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "rectangle6")
         self.navigationItem.rightBarButtonItem?.tintColor = .white
         self.navigationItem.leftBarButtonItem?.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.white]
+        
         //segmented control
         UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().backgroundColor = .white
@@ -57,26 +62,26 @@ class SelectedCategoryViewController: UIViewController {
         eventDoneSegmentControl.layer.borderColor = UIColor.leafColor.cgColor
         eventDoneSegmentControl.layer.borderWidth = 1.0
         
+        //collection view
+        collectionView.clipsToBounds = true
         
-        //collection view items size
-        if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-            
-        }
+        //tab bar
+        UITabBar.appearance().barTintColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1.0)
+        UITabBar.appearance().backgroundColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1.0)
     }
     
 }
 
 extension SelectedCategoryViewController: UITabBarDelegate {
+    //back button pressed
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item.tag == 0 {
             self.dismiss(animated: true, completion: nil)
-        } else {
-            print("GI")
         }
     }
 }
-    
+
+//MARK:- Working with collection view
 extension SelectedCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -90,21 +95,42 @@ extension SelectedCategoryViewController: UICollectionViewDelegate, UICollection
         cell.layer.masksToBounds = true
         return cell
     }
+    
+    // If cell is selected
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "SelectedEventVCID") as? SelectedEventViewController else { return }
         vc.modalPresentationStyle = .fullScreen
+        vc.eventId = indexPath.row
+        vc.categoryId = categoryId
         self.present(vc, animated: true, completion: nil)
     }
 }
 
-    
+//MARK:- setting spacing, width and height of cell
 extension SelectedCategoryViewController: UICollectionViewDelegateFlowLayout {
 
-    //MARK:- setting spacing, width and height of cell
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        collectionView.contentInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        return CGSize(width: collectionView.frame.width - (spacing + spacing) , height: 500)
+        return size(for: indexPath)
+    }
+
+    private func size(for indexPath: IndexPath) -> CGSize {
+        
+        let cell = Bundle.main.loadNibNamed("SelectedCategoryCollectionViewCell", owner: self, options: nil)?.first as! SelectedCategoryCollectionViewCell
+        
+        cell.setUpCellInfo(cellModel: cellModelsArray[indexPath.item])
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
+
+        let width = collectionView.frame.width - 10
+        let height: CGFloat = 0
+
+        let targetSize = CGSize(width: width, height: height)
+
+        let size = cell.contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .defaultHigh, verticalFittingPriority: .fittingSizeLevel)
+
+        return size
     }
 }
 

@@ -8,7 +8,12 @@
 
 import UIKit
 
-
+let helpInfoArray = [HelpCellModel(cellName: "Дети", cellImage: #imageLiteral(resourceName: "girlImage")),
+                     HelpCellModel(cellName: "Взрослые", cellImage: #imageLiteral(resourceName: "manImage")),
+                     HelpCellModel(cellName: "Пожилые", cellImage: #imageLiteral(resourceName: "oldManImage")),
+                     HelpCellModel(cellName: "Животные", cellImage: #imageLiteral(resourceName: "catImage")),
+                     HelpCellModel(cellName: "Мероприятия", cellImage: #imageLiteral(resourceName: "shoesImage")),
+]
 
 class HelpViewController: UIViewController {
     
@@ -17,13 +22,6 @@ class HelpViewController: UIViewController {
     var cellWidth:CGFloat = 0
     var cellHeight:CGFloat = 0
     var spacing:CGFloat = 5
-    
-    let helpInfoArray = [HelpCellModel(cellName: "Дети", cellImage: #imageLiteral(resourceName: "girlImage")),
-                         HelpCellModel(cellName: "Взрослые", cellImage: #imageLiteral(resourceName: "manImage")),
-                         HelpCellModel(cellName: "Пожилые", cellImage: #imageLiteral(resourceName: "oldManImage")),
-                         HelpCellModel(cellName: "Животные", cellImage: #imageLiteral(resourceName: "catImage")),
-                         HelpCellModel(cellName: "Мероприятия", cellImage: #imageLiteral(resourceName: "shoesImage")),
-    ]
     
     
     override func viewDidLoad() {
@@ -80,11 +78,11 @@ extension HelpViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let categoryId = indexPath.row
         let categoryName = helpInfoArray[indexPath.row].cellName
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "SelectedCategoryViewController") as? SelectedCategoryViewController else { return }
         vc.title = categoryName
+        vc.categoryId = indexPath.row
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

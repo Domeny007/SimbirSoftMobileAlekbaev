@@ -1,0 +1,87 @@
+[
+    {
+        "categoryId": 0,
+        "eventId" : 0,
+        "eventName" : "Спонсоры отремонтируют школу-интернат",
+        "eventTillDoneDate" : "Осталось 13 дней (21.09 – 20.10)",
+        "eventLocation" : "Санкт-Петербург, Кирочная улица, д. 50А, каб. 208",
+        "eventDescription" : "Участники и болельщики смогли весело и активно провести время на «Петербургском благотворительном марафоне» и при этом финансово поучаствовать в помощи детям. \n\nПри этом финансово поучаствовать в помощи детям. При этом финансово поучаствовать в помощи детям.",
+        "eventPhoneNumbers" : ["+7 (937) 037 37-73" , "+7 (937) 016 16-16"],
+        "eventImagesUrl" : ["https://i.ibb.co/syC9jCr/image1-1.png","https://i.ibb.co/bKd5D6k/image2-1.png","https://i.ibb.co/Sm6c7P7/image3-1.png"],
+        "eventSubsImagesUrl" : ["https://i.ibb.co/CMVx0Fv/photo1.png","https://i.ibb.co/kQ50xL3/photo2.png","https://i.ibb.co/23JFp9R/photo3.png","https://i.ibb.co/6bBpYk0/photo4.png","https://i.ibb.co/bvM4G2s/photo5.png"],
+        "eventCompanyName" : "Благотворительный фонд «Счастливый Мир»",
+        "eventSubsCount" : 105
+    
+    },
+    {
+        "categoryId": 0,
+        "eventId" : 1,
+        "eventName" : "",
+        "eventTillDoneDate" : "",
+        "eventLocation" : "",
+        "eventDescription" : "",
+        "eventPhoneNumbers" : [],
+        "eventImagesUrl" : [],
+        "eventSubsImagesUrl" : [],
+        "eventCompanyName" : "",
+        "eventSubsCount" : 0
+    
+    },
+    {
+        "categoryId": 0,
+        "eventId" : 2,
+        "eventName" : "",
+        "eventTillDoneDate" : "",
+        "eventLocation" : "",
+        "eventDescription" : "",
+        "eventPhoneNumbers" : [],
+        "eventImagesUrl" : [],
+        "eventSubsImagesUrl" : [],
+        "eventCompanyName" : "",
+        "eventSubsCount" : 0
+    
+    },
+        {
+        "categoryId": 1,
+        "eventId" : 0,
+        "eventName" : "Спонсоры отремонтируют школу-интернат",
+        "eventTillDoneDate" : "Осталось 13 дней (21.09 – 20.10)",
+        "eventLocation" : "Санкт-Петербург, Кирочная улица, д. 50А, каб. 208",
+        "eventDescription" : "Участники и болельщики смогли весело и активно провести время на «Петербургском благотворительном марафоне» и при этом финансово поучаствовать в помощи детям. \n\nПри этом финансово поучаствовать в помощи детям. При этом финансово поучаствовать в помощи детям.",
+        "eventPhoneNumbers" : ["+7 (937) 037 37-73" , "+7 (937) 016 16-16"],
+        "eventImagesUrl" : ["https://i.ibb.co/Jj0W7K1/image1-2.png","https://i.ibb.co/bKd5D6k/image2-1.png","https://i.ibb.co/Jj0W7K1/image1-2.png"],
+        "eventSubsImagesUrl" : ["https://i.ibb.co/CMVx0Fv/photo1.png","https://i.ibb.co/kQ50xL3/photo2.png","https://i.ibb.co/23JFp9R/photo3.png","https://i.ibb.co/6bBpYk0/photo4.png","https://i.ibb.co/bvM4G2s/photo5.png"],
+        "eventCompanyName" : "Благотворительный фонд «Счастливый Мир»",
+        "eventSubsCount" : 105
+    
+    },
+    {
+        "categoryId": 1,
+        "eventId" : 1,
+        "eventName" : "",
+        "eventTillDoneDate" : "",
+        "eventLocation" : "",
+        "eventDescription" : "",
+        "eventPhoneNumbers" : [],
+        "eventImagesUrl" : [],
+        "eventSubsImagesUrl" : [],
+        "eventCompanyName" : "",
+        "eventSubsCount" : 0
+    
+    },
+    {
+        "categoryId": 1,
+        "eventId" : 2,
+        "eventName" : "",
+        "eventTillDoneDate" : "",
+        "eventLocation" : "",
+        "eventDescription" : "",
+        "eventPhoneNumbers" : [],
+        "eventImagesUrl" : [],
+        "eventSubsImagesUrl" : [],
+        "eventCompanyName" : "",
+        "eventSubsCount" : 0
+    
+    }
+]
+

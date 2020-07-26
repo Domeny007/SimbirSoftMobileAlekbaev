@@ -8,18 +8,11 @@
 
 import Foundation
 import UIKit
-class SelectedCellModel {
-    var eventId = 0
-    var eventImage = UIImage()
-    var eventName = ""
-    var eventDescription = ""
-    var eventFinishDate = ""
-    
-    init(eventId: Int, eventImage: UIImage, eventName: String, eventDescription: String, eventFinishDate: String) {
-        self.eventId = eventId
-        self.eventImage = eventImage
-        self.eventName = eventName
-        self.eventDescription = eventDescription
-        self.eventFinishDate = eventFinishDate
-    }
+class SelectedCellModel: Decodable {
+    var categoryId:Int = 0
+    var eventId:Int = 0
+    var eventImageUrl:String = ""
+    var eventName:String = ""
+    var eventDescription:String = ""
+    var eventFinishDate:String = ""
 }

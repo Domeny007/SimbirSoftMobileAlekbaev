@@ -13,7 +13,7 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.selectedIndex = 2
-        tabBar.barTintColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1)
+        tabBar.barTintColor = .white
         tabBar.backgroundColor = .white
         tabBar.selectedItem?.selectedImage = #imageLiteral(resourceName: "green heart")
     }
