@@ -25,6 +25,8 @@ class SelectedCategoryCollectionViewCell: UICollectionViewCell {
         eventImageView.kf.setImage(with: URL(string: cellModel.eventImageUrl))
         if cellModel.eventImageUrl.isEmpty {
             imageHeight.constant = 0
+        } else {
+            imageHeight.constant = 202
         }
         eventNameLabel.text = cellModel.eventName
         eventDescriptionLabel.text = cellModel.eventDescription
