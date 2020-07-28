@@ -28,3 +28,42 @@ extension UIImageView {
         self.clipsToBounds = true
     }
 }
+
+extension UIViewController {
+    func createActivityIndicator(style: UIActivityIndicatorView.Style = .whiteLarge, center: CGPoint? = nil, view: UIView) -> UIView {
+        let activityView: UIView = {
+            let tempView = UIView()
+            tempView.backgroundColor = .white
+            tempView.translatesAutoresizingMaskIntoConstraints = false
+            return tempView
+        }()
+        view.addSubview(activityView)
+        activityView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+        
+        let loadingTextLabel = UILabel()
+        let activityIndicatorView = UIActivityIndicatorView(style: style)
+        
+        if let center = center {
+            activityIndicatorView.center = center
+        }
+        activityIndicatorView.color = .simbirLightGrey
+        
+        loadingTextLabel.textColor = .simbirLightGrey
+        loadingTextLabel.text = "Загрузка..."
+        loadingTextLabel.font = UIFont(name: "Avenir Light", size: 10)
+        loadingTextLabel.sizeToFit()
+        loadingTextLabel.center = CGPoint(x: activityIndicatorView.center.x, y: activityIndicatorView.center.y + 30)
+        activityView.addSubview(activityIndicatorView)
+        activityView.addSubview(loadingTextLabel)
+//        view.addSubview(activityIndicatorView)
+//        view.addSubview(loadingTextLabel)
+        activityIndicatorView.startAnimating()
+        return (activityView)
+    }
+    //MARK:- Registration collection view cell
+    func registerCollectionCell(with nibName: String, and identifier: String, collectionView: UICollectionView) {
+        let nib = UINib(nibName: nibName, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: identifier)
+    }
+    
+}
