@@ -55,8 +55,6 @@ extension UIViewController {
         loadingTextLabel.center = CGPoint(x: activityIndicatorView.center.x, y: activityIndicatorView.center.y + 30)
         activityView.addSubview(activityIndicatorView)
         activityView.addSubview(loadingTextLabel)
-//        view.addSubview(activityIndicatorView)
-//        view.addSubview(loadingTextLabel)
         activityIndicatorView.startAnimating()
         return (activityView)
     }
