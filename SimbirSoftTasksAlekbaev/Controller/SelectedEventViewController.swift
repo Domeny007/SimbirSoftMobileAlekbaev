@@ -45,12 +45,21 @@ class SelectedEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let eventInfo = JsonService().getEventById(categoryId: categoryId, eventId: eventId)
-        setInformationOfTheWindow(info: eventInfo)
-        
-        setUpAppearenceOfItems()
-        
+        let activityView = createActivityIndicator(style: .white, center: view.center, view: view)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.global(qos: .background).async {
+                let eventInfo = JsonService().getEventById(categoryId: self.categoryId, eventId: self.eventId)
+                DispatchQueue.main.sync {
+                    self.setUpAppearenceOfItems()
+                    self.setInformationOfTheWindow(info: eventInfo)
+                    for subview in activityView.subviews {
+                        subview.removeFromSuperview()
+                    }
+                    activityView.removeFromSuperview()
+                }
+            }
+        }
+            
     }
     
     //back buttom action

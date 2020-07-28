@@ -26,16 +26,11 @@ class HelpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerCollectionCell()
+        registerCollectionCell(with: "HelpCollectionViewCell", and: "helpCellIdentifier", collectionView: collectionView)
         setColorsToViews()
         self.navigationItem.title = "Помочь"
     }
     
-    //MARK:- Registration collection view cell
-    private func registerCollectionCell() {
-        let nib = UINib(nibName: "HelpCollectionViewCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "helpCellIdentifier")
-    }
     
     //MARK:- Setting colors to navigation bar, title, background and tab bar
     private func setColorsToViews() {

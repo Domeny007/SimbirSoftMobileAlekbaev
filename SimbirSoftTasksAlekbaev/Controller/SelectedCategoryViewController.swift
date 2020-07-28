@@ -11,35 +11,38 @@ import UIKit
 
 class SelectedCategoryViewController: UIViewController {
     
-    var emptyView: UIView!
-    var emptyLabel: UILabel!
     var cellModelsArray = [SelectedCellModel]()
     var categoryId = 0
-    
+    var activityView = UIView()
     @IBOutlet weak var eventDoneSegmentControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerCollectionCell()
+        registerCollectionCell(with: "SelectedCategoryCollectionViewCell", and: "SelectedCellIndentifier", collectionView: collectionView)
         setUpAppearenceOfItems()
-        cellModelsArray = JsonService().getCategoryEventsById(categoryId: categoryId)
+        
+        let activityView = createActivityIndicator(style: .white, center: view.center, view: view)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            
+            DispatchQueue.global(qos: .background).async {
+                self.cellModelsArray = JsonService().getCategoryEventsById(categoryId: self.categoryId)
+                DispatchQueue.main.sync {
+                    self.collectionView.reloadData()
+                    for subview in activityView.subviews {
+                        subview.removeFromSuperview()
+                    }
+                    activityView.removeFromSuperview()
+                }
+            }
+        }
+        
     }
-    
-    
-    
-    
-    private func registerCollectionCell() {
-        let nib = UINib(nibName: "SelectedCategoryCollectionViewCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "SelectedCellIndentifier")
-    }
-    
-    
     
     @objc private func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-    
     
     private func setUpAppearenceOfItems() {
         
