@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-
+import RealmSwift
 
 class SelectedEventViewController: UIViewController {
 
@@ -45,21 +45,29 @@ class SelectedEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getEventFromRealm()
+    }
+    //MARK:- Getting event from realm database and filling view
+    func getEventFromRealm() {
         let activityView = createActivityIndicator(style: .white, center: view.center, view: view)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            DispatchQueue.global(qos: .background).async {
-                let eventInfo = JsonService().getEventById(categoryId: self.categoryId, eventId: self.eventId)
-                DispatchQueue.main.sync {
-                    self.setUpAppearenceOfItems()
-                    self.setInformationOfTheWindow(info: eventInfo)
-                    for subview in activityView.subviews {
-                        subview.removeFromSuperview()
-                    }
-                    activityView.removeFromSuperview()
+        DispatchQueue.global(qos: .background).sync  {
+            let realm = try! Realm()
+            let result = realm.objects(SelectedEventModel.self).filter("categoryId = \(self.categoryId)").filter("eventId = \(self.eventId)")
+            let resultInfo = self.castResult(result: result)
+            DispatchQueue.main.async {
+                self.setUpAppearenceOfItems()
+                self.setInformationOfTheWindow(info: resultInfo )
+                for subview in activityView.subviews {
+                    subview.removeFromSuperview()
                 }
+                activityView.removeFromSuperview()
             }
         }
-            
+    }
+    
+    func castResult<SelectedEventModel>(result: Results<SelectedEventModel>) -> SelectedEventModel {
+        guard let information = result.map({ $0 }).first else { return SelectedEventModel._nilValue() }
+        return information
     }
     
     //back buttom action
@@ -118,16 +126,16 @@ class SelectedEventViewController: UIViewController {
         eventDescriptionLabel.text = info.eventDescription
         eventSubsCountLabel.text = "+" + String(info.eventSubsCount - 5)
         if !info.eventImagesUrl.isEmpty {
-            eventFirstImage.kf.setImage(with: URL(string: info.eventImagesUrl[0] ?? ""))
-            eventSecondImage.kf.setImage(with: URL(string: info.eventImagesUrl[1] ?? ""))
-            eventThirdImage.kf.setImage(with: URL(string: info.eventImagesUrl[2] ?? ""))
+            eventFirstImage.kf.setImage(with: URL(string: info.eventImagesUrl[0]))
+            eventSecondImage.kf.setImage(with: URL(string: info.eventImagesUrl[1]))
+            eventThirdImage.kf.setImage(with: URL(string: info.eventImagesUrl[2]))
         }
         if !info.eventSubsImagesUrl.isEmpty {
-            firstSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[0] ?? ""))
-            secondSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[1] ?? ""))
-            thirdSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[2] ?? ""))
-            fourthSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[3] ?? ""))
-            fifthSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[4] ?? ""))
+            firstSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[0]))
+            secondSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[1]))
+            thirdSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[2]))
+            fourthSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[3]))
+            fifthSubImageView.kf.setImage(with: URL(string: info.eventSubsImagesUrl[4]))
             firstSubImageView.makeRounded()
             secondSubImageView.makeRounded()
             thirdSubImageView.makeRounded()

@@ -7,11 +7,11 @@
 //
 
 import UIKit
-
+import RealmSwift
 
 class SelectedCategoryViewController: UIViewController {
     
-    var cellModelsArray = [SelectedCellModel]()
+    var cellModelsArray: Results<SelectedCategoryModel>!
     var categoryId = 0
     var activityView = UIView()
     @IBOutlet weak var eventDoneSegmentControl: UISegmentedControl!
@@ -19,25 +19,28 @@ class SelectedCategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         registerCollectionCell(with: "SelectedCategoryCollectionViewCell", and: "SelectedCellIndentifier", collectionView: collectionView)
         setUpAppearenceOfItems()
+        getCategoriesFromRealm()
         
+    }
+    
+    //MARK:- Get categories from realm and fill cells
+    func getCategoriesFromRealm() {
         let activityView = createActivityIndicator(style: .white, center: view.center, view: view)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            
-            DispatchQueue.global(qos: .background).async {
-                self.cellModelsArray = JsonService().getCategoryEventsById(categoryId: self.categoryId)
-                DispatchQueue.main.sync {
-                    self.collectionView.reloadData()
-                    for subview in activityView.subviews {
-                        subview.removeFromSuperview()
-                    }
-                    activityView.removeFromSuperview()
+        DispatchQueue.global(qos: .background).sync {
+            let realm = try! Realm()
+            self.cellModelsArray = realm.objects(SelectedCategoryModel.self).filter("categoryId = \(self.categoryId)")
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                for subview in activityView.subviews {
+                    subview.removeFromSuperview()
                 }
+                activityView.removeFromSuperview()
             }
         }
-        
     }
     
     @objc private func backButtonTapped() {
@@ -88,12 +91,16 @@ extension SelectedCategoryViewController: UITabBarDelegate {
 extension SelectedCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if cellModelsArray.count != 0 {
+            return cellModelsArray.count
+        }
         return cellModelsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCellIndentifier", for: indexPath) as? SelectedCategoryCollectionViewCell else { return UICollectionViewCell() }
-        cell.setUpCellInfo(cellModel: cellModelsArray[indexPath.row])
+        let model = cellModelsArray[indexPath.row]
+        cell.setUpCellInfo(cellModel: model)
         cell.layer.cornerRadius = 5
         cell.layer.masksToBounds = true
         return cell
@@ -113,7 +120,6 @@ extension SelectedCategoryViewController: UICollectionViewDelegate, UICollection
 //MARK:- setting spacing, width and height of cell
 extension SelectedCategoryViewController: UICollectionViewDelegateFlowLayout {
 
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return size(for: indexPath)
     }

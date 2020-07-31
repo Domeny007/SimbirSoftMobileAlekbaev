@@ -21,7 +21,7 @@ class SelectedCategoryCollectionViewCell: UICollectionViewCell {
         eventNameLabel.tintColor = .blueGrey
     }
     
-    func setUpCellInfo(cellModel: SelectedCellModel) {
+    func setUpCellInfo(cellModel: SelectedCategoryModel) {
         eventImageView.kf.setImage(with: URL(string: cellModel.eventImageUrl))
         if cellModel.eventImageUrl.isEmpty {
             imageHeight.constant = 0

@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
-class SelectedCellModel: Decodable {
-    var categoryId:Int = 0
-    var eventId:Int = 0
-    var eventImageUrl:String = ""
-    var eventName:String = ""
-    var eventDescription:String = ""
-    var eventFinishDate:String = ""
+import RealmSwift
+class SelectedCategoryModel: Object, Decodable {
+    @objc dynamic var categoryId:Int = 0
+    @objc dynamic var eventId:Int = 0
+    @objc dynamic var eventImageUrl:String = ""
+    @objc dynamic var eventName:String = ""
+    @objc dynamic var eventDescription:String = ""
+    @objc dynamic var eventFinishDate:String = ""
 }

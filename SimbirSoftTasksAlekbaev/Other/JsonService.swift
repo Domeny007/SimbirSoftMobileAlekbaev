@@ -11,13 +11,13 @@ import Foundation
 class JsonService {
     
     //MARK:- Getting selected categories events by its ID
-    func getCategoryEventsById(categoryId: Int) -> [SelectedCellModel] {
-        var allEvents = [SelectedCellModel]()
+    func getCategoryEventsById(categoryId: Int) -> [SelectedCategoryModel] {
+        var allEvents = [SelectedCategoryModel]()
         let filePath = Bundle.main.path(forResource: "CategoryData", ofType: "json")!
-        var categoryEvents = [SelectedCellModel]()
+        var categoryEvents = [SelectedCategoryModel]()
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
-            allEvents = try JSONDecoder().decode([SelectedCellModel].self, from: data)
+            allEvents = try JSONDecoder().decode([SelectedCategoryModel].self, from: data)
             
         }
         catch{
@@ -50,5 +50,30 @@ class JsonService {
         }
         return SelectedEventModel()
     }
-
+    
+    func getAllCategories() -> [SelectedCategoryModel] {
+        var allCategories = [SelectedCategoryModel]()
+        let filePath = Bundle.main.path(forResource: "CategoryData", ofType: "json")!
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+            allCategories = try JSONDecoder().decode([SelectedCategoryModel].self, from: data)
+            
+        } catch {
+            print(error)
+        }
+        return allCategories
+    }
+    
+    func getAllEvents() -> [SelectedEventModel] {
+        var allEvents = [SelectedEventModel]()
+        let filePath = Bundle.main.path(forResource: "EventData", ofType: "json")!
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+            allEvents = try JSONDecoder().decode([SelectedEventModel].self, from: data)
+                
+        } catch {
+            print(error)
+        }
+        return allEvents
+    }
 }
