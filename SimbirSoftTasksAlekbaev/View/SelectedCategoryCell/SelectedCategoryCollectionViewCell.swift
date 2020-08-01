@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+
 class SelectedCategoryCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var eventImageView: UIImageView!
