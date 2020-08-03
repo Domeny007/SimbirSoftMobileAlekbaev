@@ -21,31 +21,64 @@ class SplashViewController: UIViewController {
             realm.add(objects)
         }
     }
-    func readAndSaveInformationToRealm() {
-            let realm = try! Realm()
-            try! realm.write {
-                let events = realm.objects(SelectedEventModel.self)
-                realm.delete(events)
-                let categories = realm.objects(SelectedCategoryModel.self)
-                realm.delete(categories)
+    func readAndSaveInformationToRealm(completion: @escaping () -> Void) {
+        let realm = try! Realm()
+        try! realm.write {
+            let events = realm.objects(SelectedEventModel.self)
+            realm.delete(events)
+            let categories = realm.objects(SelectedCategoryModel.self)
+            realm.delete(categories)
+        }
+        
+        ServerService().getAllCategories(completion: { (array, error) in
+            if let categoriesArray = array {
+                self.saveRealmArray(categoriesArray)
             }
-            let allEvents = JsonService().getAllEvents()
-            let allCategories = JsonService().getAllCategories()
-            self.saveRealmArray(allCategories)
-            self.saveRealmArray(allEvents)
+            if let error = error {
+                print(error)
+                let allCategories = JsonService().getAllCategories()
+                self.saveRealmArray(allCategories)
+            }
+            
+        })
+        
+        ServerService().getAllEvents { (array, error) in
+            if let eventsArray = array {
+                self.saveRealmArray(eventsArray)
+                completion()
+            }
+            if let error = error {
+                print(error)
+                let allEvents = JsonService().getAllEvents()
+                self.saveRealmArray(allEvents)
+                completion()
+            }
+        }
+        
+        ServerService().getAllEventsAlamofire { (eventsArray, error) in
+            print(eventsArray)
+        }
+        ServerService().getAllCategoriesAlamofire { (categoryArray, error) in
+            print(categoryArray)
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         activityIndicator.style = .gray
         activityIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             DispatchQueue.global(qos: .background).sync {
-                self.readAndSaveInformationToRealm()
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabBarViewController = storyboard.instantiateViewController(withIdentifier: "TabBarIdentifier")
-                tabBarViewController.modalPresentationStyle = .fullScreen
-                self.present(tabBarViewController, animated: true, completion: nil)
-            }
+                self.readAndSaveInformationToRealm(completion: {
+                    DispatchQueue.main.async {
+                        self.showCategoriesController()
+                    }
+                })
         }
+    }
+    func showCategoriesController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarViewController = storyboard.instantiateViewController(withIdentifier: "TabBarIdentifier")
+        tabBarViewController.modalPresentationStyle = .fullScreen
+        self.present(tabBarViewController, animated: true, completion: nil)
     }
 }
