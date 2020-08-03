@@ -7,6 +7,8 @@ target 'SimbirSoftTasksAlekbaev' do
 
   pod 'Kingfisher', '~> 5.0'
   pod 'RealmSwift'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
   target 'SimbirSoftTasksAlekbaevTests' do
     inherit! :search_paths
