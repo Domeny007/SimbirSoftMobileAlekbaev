@@ -55,6 +55,13 @@ class SplashViewController: UIViewController {
             }
         }
         
+        ServerService().getAllEventsAlamofire { (eventsArray, error) in
+            print(eventsArray)
+        }
+        ServerService().getAllCategoriesAlamofire { (categoryArray, error) in
+            print(categoryArray)
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

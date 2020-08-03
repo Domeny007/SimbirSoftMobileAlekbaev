@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import Alamofire
 
 class ServerService {
     
@@ -27,6 +28,9 @@ class ServerService {
                 }
                 
             }
+            if let error = error {
+                completion(nil, error)
+            }
             
         }.resume()
     }
@@ -39,7 +43,6 @@ class ServerService {
             if let data = data {
                 do {
                     let events = try JSONDecoder().decode([SelectedEventModel].self, from: data)
-                        print(events)
                         completion(events, nil)
                     
                 } catch {
@@ -47,8 +50,41 @@ class ServerService {
                 }
                 
             }
+            if let error = error {
+                completion(nil, error)
+            }
             
         }.resume()
     }
+    
+    func getAllEventsAlamofire(completion: @escaping ([SelectedEventModel]?, Error?) -> Void) {
+        AF.request("https://simbirsoftintershipproject.firebaseio.com/Events.json")
+            .response { (response) in
+                guard let data = response.data else { return }
+                do {
+                    let events = try JSONDecoder().decode([SelectedEventModel].self, from: data)
+                    completion(events, nil)
+                } catch {
+                    completion(nil, error)
+                }
+                
+        }
+    }
+    
+    func getAllCategoriesAlamofire(completion: @escaping ([SelectedCategoryModel]?, Error?) -> Void) {
+        AF.request("https://simbirsoftintershipproject.firebaseio.com/Categories.json")
+            .response { (response) in
+                guard let data = response.data else { return }
+                do {
+                    let category = try JSONDecoder().decode([SelectedCategoryModel].self, from: data)
+                    print(category)
+                    completion(category, nil)
+                } catch {
+                    completion(nil, error)
+                }
+                
+        }
+    }
+    
     
 }
