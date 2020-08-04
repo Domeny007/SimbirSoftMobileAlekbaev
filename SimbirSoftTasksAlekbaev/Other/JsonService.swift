@@ -19,9 +19,8 @@ class JsonService {
             let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
             allEvents = try JSONDecoder().decode([SelectedCategoryModel].self, from: data)
             
-        }
-        catch{
-            print(error)
+        } catch {
+            
         }
         for item in allEvents {
             if item.categoryId == categoryId {
@@ -30,6 +29,7 @@ class JsonService {
         }
         return categoryEvents
     }
+    
     //MARK:- Geting event by his ID
     func getEventById(categoryId: Int, eventId: Int) -> SelectedEventModel {
         var events = [SelectedEventModel]()
@@ -38,9 +38,8 @@ class JsonService {
             let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
             events = try JSONDecoder().decode([SelectedEventModel].self, from: data)
             
-        }
-        catch{
-            print(error)
+        } catch {
+            
         }
         for item in events {
             if item.categoryId == categoryId && item.eventId == eventId {
@@ -59,7 +58,7 @@ class JsonService {
             allCategories = try JSONDecoder().decode([SelectedCategoryModel].self, from: data)
             
         } catch {
-            print(error)
+            
         }
         return allCategories
     }
@@ -72,7 +71,7 @@ class JsonService {
             allEvents = try JSONDecoder().decode([SelectedEventModel].self, from: data)
                 
         } catch {
-            print(error)
+            
         }
         return allEvents
     }

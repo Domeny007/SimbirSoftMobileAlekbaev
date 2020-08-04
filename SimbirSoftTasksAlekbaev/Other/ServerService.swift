@@ -12,8 +12,12 @@ import Alamofire
 
 class ServerService {
     
+    let cagegoriesURL = "https://simbirsoftintershipproject.firebaseio.com/Categories.json"
+    let eventsURL = "https://simbirsoftintershipproject.firebaseio.com/Events.json"
+    
     func getAllCategories(completion: @escaping ([SelectedCategoryModel]?, Error?) -> Void) {
-        guard let url = URL(string: "https://simbirsoftintershipproject.firebaseio.com/Categories.json") else { fatalError("URL is invalid") }
+        
+        guard let url = URL(string: cagegoriesURL) else { fatalError("URL is invalid") }
         let session = URLSession.shared
         
         session.dataTask(with: url) { (data, response, error) in
@@ -23,8 +27,8 @@ class ServerService {
                     completion(categories, nil)
                     
                 } catch {
-                    print(error)
                     completion(nil, error)
+                    
                 }
                 
             }
@@ -36,7 +40,7 @@ class ServerService {
     }
     
     func getAllEvents(completion: @escaping ([SelectedEventModel]?, Error?) -> Void) {
-        guard let url = URL(string: "https://simbirsoftintershipproject.firebaseio.com/Events.json") else { fatalError("URL is invalid") }
+        guard let url = URL(string: eventsURL) else { fatalError("URL is invalid") }
         let session = URLSession.shared
         
         session.dataTask(with: url) { (data, response, error) in
@@ -58,7 +62,7 @@ class ServerService {
     }
     
     func getAllEventsAlamofire(completion: @escaping ([SelectedEventModel]?, Error?) -> Void) {
-        AF.request("https://simbirsoftintershipproject.firebaseio.com/Events.json")
+        AF.request(eventsURL)
             .response { (response) in
                 guard let data = response.data else { return }
                 do {
@@ -72,19 +76,18 @@ class ServerService {
     }
     
     func getAllCategoriesAlamofire(completion: @escaping ([SelectedCategoryModel]?, Error?) -> Void) {
-        AF.request("https://simbirsoftintershipproject.firebaseio.com/Categories.json")
+        AF.request(cagegoriesURL)
             .response { (response) in
                 guard let data = response.data else { return }
                 do {
                     let category = try JSONDecoder().decode([SelectedCategoryModel].self, from: data)
-                    print(category)
                     completion(category, nil)
+                    
                 } catch {
                     completion(nil, error)
+                    
                 }
-                
         }
     }
-    
     
 }

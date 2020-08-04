@@ -15,11 +15,13 @@ class HelpCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
     func fillCellsInformation(cellInfoModel: HelpCellModel) {
         helpNameLabel.text = cellInfoModel.cellName
         helpImageView.image = cellInfoModel.cellImage
+        
     }
     
 }

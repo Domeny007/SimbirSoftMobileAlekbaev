@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RealmSwift
+
 class SelectedEventModel: Object, Decodable {
     
     @objc dynamic var categoryId = 0
@@ -22,4 +23,5 @@ class SelectedEventModel: Object, Decodable {
     var eventSubsImagesUrl = List<String>()
     @objc dynamic var eventCompanyName = ""
     @objc dynamic var eventSubsCount = 0
+    
 }

@@ -23,18 +23,19 @@ class SelectedCategoryViewController: UIViewController {
         registerCollectionCell(with: "SelectedCategoryCollectionViewCell", and: "SelectedCellIndentifier", collectionView: collectionView)
         setUpAppearenceOfItems()
         getCategoriesFromRealm()
+        checkCategoriesArray(array: (cellModelsArray))
         
+//        self.collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
     }
     
     //MARK:- Get categories from realm and fill cells
-    func getCategoriesFromRealm() {
+    private func getCategoriesFromRealm() {
         let activityView = createActivityIndicator(style: .white, center: view.center, view: view)
-        
-        DispatchQueue.global(qos: .background).sync {
-            let realm = try! Realm()
+        let realm = try! Realm()
+        DispatchQueue.global(qos: .background).sync { [unowned self] in
             self.cellModelsArray = realm.objects(SelectedCategoryModel.self).filter("categoryId = \(self.categoryId)")
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
                 for subview in activityView.subviews {
                     subview.removeFromSuperview()
                 }
@@ -43,23 +44,51 @@ class SelectedCategoryViewController: UIViewController {
         }
     }
     
+    private func checkCategoriesArray(array: Results<SelectedCategoryModel>!) {
+        if array.count == 0 {
+            let loadingTextLabel = UILabel()
+            
+            loadingTextLabel.textColor = .simbirLightGrey
+            loadingTextLabel.text = "Событий нет..."
+            loadingTextLabel.font = UIFont(name: "Avenir Light", size: 15)
+            loadingTextLabel.sizeToFit()
+            loadingTextLabel.center = CGPoint(x: view.center.x, y: view.center.y + 30)
+            collectionView.backgroundColor = .white
+            view.addSubview(loadingTextLabel)
+        }
+    }
+    
     @objc private func backButtonTapped() {
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     private func setUpAppearenceOfItems() {
         
-        //navigation controller
-        self.navigationItem.leftBarButtonItem? = UIBarButtonItem(image: #imageLiteral(resourceName: "backButtonIcon"), style: .plain, target: self, action: #selector(backButtonTapped))
-        self.navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "rectangle6")
-        self.navigationItem.rightBarButtonItem?.tintColor = .white
-        self.navigationItem.leftBarButtonItem?.tintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationItem.leftBarButtonItem? = UIBarButtonItem(image: #imageLiteral(resourceName: "backButtonIcon"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(backButtonTapped)
+                                                            )
+        navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "rectangle6")
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        navigationItem.leftBarButtonItem?.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes =
+            [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17),
+            NSAttributedString.Key.foregroundColor: UIColor.white
+            ]
         
-        //segmented control
-        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes(
+            [
+                NSAttributedString.Key.foregroundColor: UIColor.white
+            ],
+            for: .selected)
         UISegmentedControl.appearance().backgroundColor = .white
-        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.leafColor], for: .normal)
+        UISegmentedControl.appearance().setTitleTextAttributes(
+        [
+            NSAttributedString.Key.foregroundColor: UIColor.leafColor
+        ],
+        for: .normal)
         if #available(iOS 13.0, *) {
             eventDoneSegmentControl.selectedSegmentTintColor = .leafColor
         } else {
@@ -68,10 +97,10 @@ class SelectedCategoryViewController: UIViewController {
         eventDoneSegmentControl.layer.borderColor = UIColor.leafColor.cgColor
         eventDoneSegmentControl.layer.borderWidth = 1.0
         
-        //collection view
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        collectionView.contentOffset = CGPoint(x: 0, y: 0)
         collectionView.clipsToBounds = true
         
-        //tab bar
         UITabBar.appearance().barTintColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1.0)
         UITabBar.appearance().backgroundColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1.0)
     }
@@ -82,7 +111,7 @@ extension SelectedCategoryViewController: UITabBarDelegate {
     //back button pressed
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item.tag == 0 {
-            self.dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
         }
     }
 }
@@ -106,14 +135,13 @@ extension SelectedCategoryViewController: UICollectionViewDelegate, UICollection
         return cell
     }
     
-    // If cell is selected
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "SelectedEventVCID") as? SelectedEventViewController else { return }
         vc.modalPresentationStyle = .fullScreen
         vc.eventId = indexPath.row
         vc.categoryId = categoryId
-        self.present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
 }
 

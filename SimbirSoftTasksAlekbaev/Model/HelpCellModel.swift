@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class HelpCellModel {
+struct HelpCellModel {
     var cellName = ""
     var cellImage = UIImage()
     

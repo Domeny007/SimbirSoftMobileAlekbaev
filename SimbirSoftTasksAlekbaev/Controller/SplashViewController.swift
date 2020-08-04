@@ -15,13 +15,37 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    func saveRealmArray(_ objects: [Object]) {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        activityIndicator.style = .gray
+        activityIndicator.startAnimating()
+        DispatchQueue.global(qos: .background).sync { [weak self] in
+            self?.readAndSaveInformationToRealm(completion: { [weak self] in
+                DispatchQueue.main.async {
+                    self?.showCategoriesController()
+                        
+                }
+            })
+        }
+    }
+    
+    private func showCategoriesController() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarViewController = storyboard.instantiateViewController(withIdentifier: "TabBarIdentifier")
+        tabBarViewController.modalPresentationStyle = .fullScreen
+        present(tabBarViewController, animated: true, completion: nil)
+        
+    }
+    
+    private func saveRealmArray(_ objects: [Object]) {
         let realm = try! Realm()
         try! realm.write {
             realm.add(objects)
         }
     }
-    func readAndSaveInformationToRealm(completion: @escaping () -> Void) {
+    
+    private func readAndSaveInformationToRealm(completion: @escaping () -> Void) {
         let realm = try! Realm()
         try! realm.write {
             let events = realm.objects(SelectedEventModel.self)
@@ -30,55 +54,39 @@ class SplashViewController: UIViewController {
             realm.delete(categories)
         }
         
-        ServerService().getAllCategories(completion: { (array, error) in
+        ServerService().getAllCategories(completion: { [weak self] (array, error) in
             if let categoriesArray = array {
-                self.saveRealmArray(categoriesArray)
+                self?.saveRealmArray(categoriesArray)
             }
-            if let error = error {
-                print(error)
+            
+            if error != nil {
                 let allCategories = JsonService().getAllCategories()
-                self.saveRealmArray(allCategories)
+                self?.saveRealmArray(allCategories)
             }
             
         })
         
-        ServerService().getAllEvents { (array, error) in
+        ServerService().getAllEvents { [weak self] (array, error) in
+            
             if let eventsArray = array {
-                self.saveRealmArray(eventsArray)
+                self?.saveRealmArray(eventsArray)
                 completion()
             }
-            if let error = error {
-                print(error)
+            
+            if error != nil {
                 let allEvents = JsonService().getAllEvents()
-                self.saveRealmArray(allEvents)
+                self?.saveRealmArray(allEvents)
                 completion()
             }
         }
         
         ServerService().getAllEventsAlamofire { (eventsArray, error) in
-            print(eventsArray)
+            print(eventsArray as Any)
         }
         ServerService().getAllCategoriesAlamofire { (categoryArray, error) in
-            print(categoryArray)
+            print(categoryArray as Any)
         }
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        activityIndicator.style = .gray
-        activityIndicator.startAnimating()
-            DispatchQueue.global(qos: .background).sync {
-                self.readAndSaveInformationToRealm(completion: {
-                    DispatchQueue.main.async {
-                        self.showCategoriesController()
-                    }
-                })
-        }
-    }
-    func showCategoriesController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBarViewController = storyboard.instantiateViewController(withIdentifier: "TabBarIdentifier")
-        tabBarViewController.modalPresentationStyle = .fullScreen
-        self.present(tabBarViewController, animated: true, completion: nil)
-    }
 }

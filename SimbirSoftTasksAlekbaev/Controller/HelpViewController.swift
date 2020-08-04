@@ -8,13 +8,6 @@
 
 import UIKit
 
-let helpInfoArray = [HelpCellModel(cellName: "Дети", cellImage: #imageLiteral(resourceName: "girlImage")),
-                     HelpCellModel(cellName: "Взрослые", cellImage: #imageLiteral(resourceName: "manImage")),
-                     HelpCellModel(cellName: "Пожилые", cellImage: #imageLiteral(resourceName: "oldManImage")),
-                     HelpCellModel(cellName: "Животные", cellImage: #imageLiteral(resourceName: "catImage")),
-                     HelpCellModel(cellName: "Мероприятия", cellImage: #imageLiteral(resourceName: "shoesImage")),
-]
-
 class HelpViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -23,12 +16,19 @@ class HelpViewController: UIViewController {
     var cellHeight:CGFloat = 0
     var spacing:CGFloat = 5
     
+    let helpInfoArray = [HelpCellModel(cellName: "Дети", cellImage: #imageLiteral(resourceName: "girlImage")),
+                         HelpCellModel(cellName: "Взрослые", cellImage: #imageLiteral(resourceName: "manImage")),
+                         HelpCellModel(cellName: "Пожилые", cellImage: #imageLiteral(resourceName: "oldManImage")),
+                         HelpCellModel(cellName: "Животные", cellImage: #imageLiteral(resourceName: "catImage")),
+                         HelpCellModel(cellName: "Мероприятия", cellImage: #imageLiteral(resourceName: "shoesImage")),
+                        ]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCollectionCell(with: "HelpCollectionViewCell", and: "helpCellIdentifier", collectionView: collectionView)
         setColorsToViews()
-        self.navigationItem.title = "Помочь"
+        navigationItem.title = "Помочь"
     }
     
     
@@ -68,17 +68,22 @@ extension HelpViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "helpCellIdentifier", for: indexPath) as? HelpCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
         cell.fillCellsInformation(cellInfoModel: helpInfoArray[indexPath.row])
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let categoryName = helpInfoArray[indexPath.row].cellName
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
         guard let vc = storyboard.instantiateViewController(withIdentifier: "SelectedCategoryViewController") as? SelectedCategoryViewController else { return }
         vc.title = categoryName
         vc.categoryId = indexPath.row
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
+    
 }
 

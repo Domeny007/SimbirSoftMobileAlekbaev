@@ -318,7 +318,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bTW-UD-IWF">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" contentInsetAdjustmentBehavior="always" translatesAutoresizingMaskIntoConstraints="NO" id="bTW-UD-IWF">
                                 <rect key="frame" x="0.0" y="88" width="414" height="733"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jwa-Em-jWt">
@@ -619,6 +619,7 @@
                         <outlet property="firstSubImageView" destination="2Em-mS-0R1" id="F60-oF-yxF"/>
                         <outlet property="fourthSubImageView" destination="ykL-UD-w0m" id="zsE-gG-oBe"/>
                         <outlet property="organizationWebPageButton" destination="Pkk-XQ-QEd" id="Qfh-UF-xpX"/>
+                        <outlet property="scrollView" destination="bTW-UD-IWF" id="qPR-Ml-DGT"/>
                         <outlet property="secondSubImageView" destination="P8w-o3-ZCz" id="yw9-K4-B1d"/>
                         <outlet property="shareBarButtonItem" destination="Xct-NR-nV5" id="29u-gs-TTk"/>
                         <outlet property="thirdSubImageView" destination="o0N-0Q-Sw9" id="Cjx-yP-TQ1"/>

@@ -41,38 +41,46 @@ class SelectedEventViewController: UIViewController {
     @IBOutlet weak var writeToUsButton: UIButton!
     @IBOutlet weak var organizationWebPageButton: UIButton!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     var (categoryId, eventId) = (0, 0)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getEventFromRealm()
+        
     }
+    
+    //back buttom action
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    private func castResult<SelectedEventModel>(result: Results<SelectedEventModel>) -> SelectedEventModel {
+        guard let information = result.map({ $0 }).first else { return SelectedEventModel._nilValue() }
+        return information
+    }
+    
     //MARK:- Getting event from realm database and filling view
-    func getEventFromRealm() {
+    private func getEventFromRealm() {
         let activityView = createActivityIndicator(style: .white, center: view.center, view: view)
-        DispatchQueue.global(qos: .background).sync  {
+        
+        DispatchQueue.global(qos: .background).sync  { [unowned self] in
             let realm = try! Realm()
             let result = realm.objects(SelectedEventModel.self).filter("categoryId = \(self.categoryId)").filter("eventId = \(self.eventId)")
             let resultInfo = self.castResult(result: result)
-            DispatchQueue.main.async {
-                self.setUpAppearenceOfItems()
-                self.setInformationOfTheWindow(info: resultInfo )
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.setUpAppearenceOfItems()
+                self?.setInformationOfTheWindow(info: resultInfo)
                 for subview in activityView.subviews {
                     subview.removeFromSuperview()
                 }
                 activityView.removeFromSuperview()
             }
         }
-    }
-    
-    func castResult<SelectedEventModel>(result: Results<SelectedEventModel>) -> SelectedEventModel {
-        guard let information = result.map({ $0 }).first else { return SelectedEventModel._nilValue() }
-        return information
-    }
-    
-    //back buttom action
-    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
     }
     
     //MARK:-Setting up appearence of items on view
