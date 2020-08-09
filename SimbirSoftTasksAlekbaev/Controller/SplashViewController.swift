@@ -14,9 +14,6 @@ class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         activityIndicator.style = .gray
         activityIndicator.startAnimating()
         DispatchQueue.global(qos: .background).sync { [weak self] in
@@ -29,13 +26,16 @@ class SplashViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+
+    }
+    
     private func showCategoriesController() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBarViewController = storyboard.instantiateViewController(withIdentifier: "TabBarIdentifier")
-        tabBarViewController.modalPresentationStyle = .fullScreen
-        present(tabBarViewController, animated: true, completion: nil)
-        
+        let tabBarViewController = storyboard.instantiateViewController(withIdentifier: "TabBarIdentifier") as? UITabBarController
+        tabBarViewController?.modalPresentationStyle = .fullScreen
+        self.present(tabBarViewController!, animated: true, completion: nil)
     }
     
     private func saveRealmArray(_ objects: [Object]) {

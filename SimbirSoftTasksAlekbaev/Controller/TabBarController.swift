@@ -16,7 +16,16 @@ class TabBarController: UITabBarController {
         self.selectedIndex = 2
         tabBar.barTintColor = .white
         tabBar.backgroundColor = .white
-        tabBar.selectedItem?.selectedImage = #imageLiteral(resourceName: "green heart")
+        
+        let helpView = HelpConfigurator.assembleModule()
+        viewControllers![2] = helpView!
+        viewControllers![2].tabBarItem.selectedImage = #imageLiteral(resourceName: "green heart")
+        viewControllers![2].tabBarItem.image = #imageLiteral(resourceName: "red heart")
+        viewControllers![2].tabBarItem.title = "Помочь"
+        viewControllers![2].tabBarItem.imageInsets.top = -11
+        viewControllers![2].tabBarItem.imageInsets.bottom = 11
+        viewControllers![2].tabBarItem.imageInsets.left = -26
+        viewControllers![2].tabBarItem.imageInsets.right = -26
         
     }
 

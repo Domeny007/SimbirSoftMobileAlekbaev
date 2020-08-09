@@ -13,6 +13,11 @@
 		7617A02C24CDDE2300A98384 /* JsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617A02B24CDDE2200A98384 /* JsonService.swift */; };
 		7617A03124D834E100A98384 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7617A03024D834E100A98384 /* GoogleService-Info.plist */; };
 		7617A03324D8672900A98384 /* ServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617A03224D8672900A98384 /* ServerService.swift */; };
+		761F97EE24E040B30035A38C /* HelpConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F97ED24E040B30035A38C /* HelpConfigurator.swift */; };
+		761F97F224E0667E0035A38C /* HelpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F97F124E0667E0035A38C /* HelpPresenter.swift */; };
+		761F97F424E0669C0035A38C /* HelpIntercator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F97F324E0669C0035A38C /* HelpIntercator.swift */; };
+		761F97F624E066B80035A38C /* HelpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F97F524E066B80035A38C /* HelpRouter.swift */; };
+		761F980024E06B200035A38C /* HelpViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F97FF24E06B200035A38C /* HelpViewProtocol.swift */; };
 		7629C52D24B76E41000BD82C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7629C52C24B76E41000BD82C /* AppDelegate.swift */; };
 		7629C53124B76E41000BD82C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7629C53024B76E41000BD82C /* ViewController.swift */; };
 		7629C53424B76E41000BD82C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7629C53224B76E41000BD82C /* Main.storyboard */; };
@@ -54,6 +59,11 @@
 		7617A02B24CDDE2200A98384 /* JsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonService.swift; sourceTree = "<group>"; };
 		7617A03024D834E100A98384 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7617A03224D8672900A98384 /* ServerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerService.swift; sourceTree = "<group>"; };
+		761F97ED24E040B30035A38C /* HelpConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpConfigurator.swift; sourceTree = "<group>"; };
+		761F97F124E0667E0035A38C /* HelpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPresenter.swift; sourceTree = "<group>"; };
+		761F97F324E0669C0035A38C /* HelpIntercator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIntercator.swift; sourceTree = "<group>"; };
+		761F97F524E066B80035A38C /* HelpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpRouter.swift; sourceTree = "<group>"; };
+		761F97FF24E06B200035A38C /* HelpViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewProtocol.swift; sourceTree = "<group>"; };
 		7629C52924B76E41000BD82C /* SimbirSoftTasksAlekbaev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimbirSoftTasksAlekbaev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7629C52C24B76E41000BD82C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7629C53024B76E41000BD82C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +143,69 @@
 			path = jsons;
 			sourceTree = "<group>";
 		};
+		761F97EC24E0405C0035A38C /* HelpViewModule */ = {
+			isa = PBXGroup;
+			children = (
+				761F97FC24E068F90035A38C /* View */,
+				761F97FB24E068F10035A38C /* Interactor */,
+				761F97FA24E068E70035A38C /* Presenter */,
+				761F97FD24E069010035A38C /* Entity */,
+				761F97FE24E069120035A38C /* Router */,
+				761F97F924E068D70035A38C /* Configurator */,
+			);
+			path = HelpViewModule;
+			sourceTree = "<group>";
+		};
+		761F97F924E068D70035A38C /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				761F97ED24E040B30035A38C /* HelpConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		761F97FA24E068E70035A38C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				761F97F124E0667E0035A38C /* HelpPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		761F97FB24E068F10035A38C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				761F97F324E0669C0035A38C /* HelpIntercator.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		761F97FC24E068F90035A38C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				765420E524BF499E00BAF734 /* HelpViewController.swift */,
+				761F97FF24E06B200035A38C /* HelpViewProtocol.swift */,
+				7695833D24C8B8CD0021974F /* HelpCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		761F97FD24E069010035A38C /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				76FE340124C5E09A00B225F7 /* HelpCellModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		761F97FE24E069120035A38C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				761F97F524E066B80035A38C /* HelpRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		7629C52024B76E41000BD82C = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +229,7 @@
 		7629C52B24B76E41000BD82C /* SimbirSoftTasksAlekbaev */ = {
 			isa = PBXGroup;
 			children = (
+				761F97EC24E0405C0035A38C /* HelpViewModule */,
 				7695833924C889000021974F /* Model */,
 				765420EB24C0473D00BAF734 /* View */,
 				7695833824C888F60021974F /* Controller */,
@@ -179,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				7695833E24C8B8E10021974F /* SelectedCategoryCell */,
-				7695833D24C8B8CD0021974F /* HelpCell */,
 				7629C53224B76E41000BD82C /* Main.storyboard */,
 				7629C53724B76E47000BD82C /* LaunchScreen.storyboard */,
 			);
@@ -191,7 +264,6 @@
 			children = (
 				76FFD70624C187190017EF05 /* TabBarController.swift */,
 				76FE340724C6130C00B225F7 /* SplashViewController.swift */,
-				765420E524BF499E00BAF734 /* HelpViewController.swift */,
 				7695833B24C889D50021974F /* SelectedCategoryViewController.swift */,
 				7695834524CA25C40021974F /* SelectedEventViewController.swift */,
 			);
@@ -201,7 +273,6 @@
 		7695833924C889000021974F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				76FE340124C5E09A00B225F7 /* HelpCellModel.swift */,
 				7695834324C8CA4C0021974F /* SelectedCategoryCellModel.swift */,
 				7695834724CB50E10021974F /* SelectedEventModel.swift */,
 			);
@@ -417,18 +488,23 @@
 				7695834624CA25C40021974F /* SelectedEventViewController.swift in Sources */,
 				7629C53124B76E41000BD82C /* ViewController.swift in Sources */,
 				7695833724C718CA0021974F /* Extensions.swift in Sources */,
+				761F97F224E0667E0035A38C /* HelpPresenter.swift in Sources */,
+				761F980024E06B200035A38C /* HelpViewProtocol.swift in Sources */,
 				7695834424C8CA4C0021974F /* SelectedCategoryCellModel.swift in Sources */,
 				7629C52D24B76E41000BD82C /* AppDelegate.swift in Sources */,
+				761F97F624E066B80035A38C /* HelpRouter.swift in Sources */,
 				7617A02C24CDDE2300A98384 /* JsonService.swift in Sources */,
 				7617A03324D8672900A98384 /* ServerService.swift in Sources */,
 				765420E924C0473400BAF734 /* HelpCollectionViewCell.swift in Sources */,
 				76FFD70724C187190017EF05 /* TabBarController.swift in Sources */,
+				761F97F424E0669C0035A38C /* HelpIntercator.swift in Sources */,
 				765420E624BF499E00BAF734 /* HelpViewController.swift in Sources */,
 				7695834124C8B90E0021974F /* SelectedCategoryCollectionViewCell.swift in Sources */,
 				76FE340224C5E09A00B225F7 /* HelpCellModel.swift in Sources */,
 				7695833C24C889D50021974F /* SelectedCategoryViewController.swift in Sources */,
 				76FE340024C58B4A00B225F7 /* SceneDelegate.swift in Sources */,
 				76FE340824C6130C00B225F7 /* SplashViewController.swift in Sources */,
+				761F97EE24E040B30035A38C /* HelpConfigurator.swift in Sources */,
 				7695834824CB50E10021974F /* SelectedEventModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

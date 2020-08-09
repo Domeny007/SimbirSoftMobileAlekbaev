@@ -11,12 +11,13 @@ import RealmSwift
 
 class SelectedCategoryViewController: UIViewController {
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
     var cellModelsArray: Results<SelectedCategoryModel>!
     var categoryId = 0
     var activityView = UIView()
     @IBOutlet weak var eventDoneSegmentControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var titleText = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,20 +60,20 @@ class SelectedCategoryViewController: UIViewController {
     }
     
     @objc private func backButtonTapped() {
-        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func setUpAppearenceOfItems() {
-        
-        navigationItem.leftBarButtonItem? = UIBarButtonItem(image: #imageLiteral(resourceName: "backButtonIcon"),
+        navigationBar.topItem!.leftBarButtonItem? = UIBarButtonItem(image: #imageLiteral(resourceName: "backButtonIcon"),
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(backButtonTapped)
                                                             )
-        navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "rectangle6")
-        navigationItem.rightBarButtonItem?.tintColor = .white
-        navigationItem.leftBarButtonItem?.tintColor = .white
-        navigationController?.navigationBar.titleTextAttributes =
+        navigationBar.barTintColor = .leafColor
+        navigationBar.topItem?.leftBarButtonItem?.tintColor = .white
+        navigationBar.topItem?.rightBarButtonItem?.tintColor = .white
+        navigationBar.topItem?.title = titleText
+        navigationBar.titleTextAttributes =
             [
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17),
             NSAttributedString.Key.foregroundColor: UIColor.white

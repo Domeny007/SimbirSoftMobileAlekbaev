@@ -8,34 +8,48 @@
 
 import UIKit
 
-class HelpViewController: UIViewController {
+
+class HelpViewController: UIViewController, HelpView {
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
     var cellWidth:CGFloat = 0
     var cellHeight:CGFloat = 0
     var spacing:CGFloat = 5
     
-    let helpInfoArray = [HelpCellModel(cellName: "Дети", cellImage: #imageLiteral(resourceName: "girlImage")),
-                         HelpCellModel(cellName: "Взрослые", cellImage: #imageLiteral(resourceName: "manImage")),
-                         HelpCellModel(cellName: "Пожилые", cellImage: #imageLiteral(resourceName: "oldManImage")),
-                         HelpCellModel(cellName: "Животные", cellImage: #imageLiteral(resourceName: "catImage")),
-                         HelpCellModel(cellName: "Мероприятия", cellImage: #imageLiteral(resourceName: "shoesImage")),
-                        ]
-
+    var currentCellsCount: Int?
+    var helpCellModel: HelpCellModel?
+    
+    var presenter: HelpViewPresentation?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        prepareCollectionView()
+    }
+    
+    func set(currentCellsCount count: Int) {
+        currentCellsCount = count
+    }
+    
+    func prepareCollectionView() {
+        
         registerCollectionCell(with: "HelpCollectionViewCell", and: "helpCellIdentifier", collectionView: collectionView)
         setColorsToViews()
-        navigationItem.title = "Помочь"
+    }
+    
+    func set(currentCellModel model: HelpCellModel) {
+        helpCellModel = model
     }
     
     
     //MARK:- Setting colors to navigation bar, title, background and tab bar
     private func setColorsToViews() {
-        navigationController?.navigationBar.barTintColor = .leafColor
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationBar.barTintColor = .leafColor
+        navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationBar.topItem?.title = "Помочь"
         collectionView.backgroundColor = .white
         
         tabBarController?.tabBar.barTintColor = .white
@@ -61,28 +75,29 @@ extension HelpViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     //MARK:- Working with collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return helpInfoArray.count
+        presenter?.getCurrentCellInfoCount()
+        return currentCellsCount ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "helpCellIdentifier", for: indexPath) as? HelpCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-        cell.fillCellsInformation(cellInfoModel: helpInfoArray[indexPath.row])
+        presenter?.getCurrentCellModel(indexPath: indexPath)
+        guard let model = helpCellModel else { return UICollectionViewCell() }
+        cell.fillCellsInformation(cellInfoModel: model)
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let categoryName = helpInfoArray[indexPath.row].cellName
+        presenter?.getCurrentCellModel(indexPath: indexPath)
+        let categoryName = helpCellModel?.cellName
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         guard let vc = storyboard.instantiateViewController(withIdentifier: "SelectedCategoryViewController") as? SelectedCategoryViewController else { return }
-        vc.title = categoryName
+        vc.titleText = categoryName!
         vc.categoryId = indexPath.row
-        navigationController?.pushViewController(vc, animated: true)
-        
+        self.present(vc, animated: true, completion: nil)
     }
     
 }
